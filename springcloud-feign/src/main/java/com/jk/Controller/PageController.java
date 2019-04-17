@@ -25,4 +25,9 @@ public class PageController {
     public String toAddCar(){
         return "addCar";
     }
+
+    @RequestMapping("toMain")
+    public String toMain(){
+        return "main";
+    }
 }
