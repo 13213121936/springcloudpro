@@ -28,6 +28,6 @@ public class PageController {
 
     @RequestMapping("toMain")
     public String toMain(){
-        return "main";
+        return "index";
     }
 }
