@@ -82,23 +82,23 @@ $(function () {
 <!--搜搜框获取焦点-->
 <script type="text/javascript">
 $(function () {
-$('.sea-ipt-txt').focus(function() { 
+$('.sea-ipt-txt').focus(function() {
 $(this).addClass("on");
-$('.search-btn').addClass("on"); 
-}); 
-$('.sea-ipt-txt').blur(function() { 
+$('.search-btn').addClass("on");
+});
+$('.sea-ipt-txt').blur(function() {
 $(this).removeClass("on");
 $('.search-btn').removeClass("on");
-}); 
+});
 });
 </script>
 <!--下拉导航关闭-->
 <script type="text/javascript">
 $(function () {
- $('.menu-mb i').click(function() { 
+ $('.menu-mb i').click(function() {
    $(".navigation-mb-list").slideDown(300);
- }); 
- $('.navigation-mb-list .list-close-btn').click(function() { 
+ });
+ $('.navigation-mb-list .list-close-btn').click(function() {
    $(".navigation-mb-list").slideUp(300);
  });
 });
@@ -175,11 +175,6 @@ $(function () {
         </div>
       </div>
       <span class="common-bg city-logo"></span> </div>
-    <div class="sea">
-      <div class="egc-sea-box">
-        <input type="text" class="sea-ipt-txt" placeholder="搜索您想要的车" />
-        <a href="#" class="search-btn">搜索</a> </div>
-    </div>
     <div class="hot-phone"> <i></i> <span class="js-change-phone">400-877-9288</span> </div>
   </div>
 </div>
@@ -215,11 +210,19 @@ $(function () {
     <form class="sel-box sell_panel_maskNav">
       <div class="w-title">填写车辆信息，我们帮您卖车</div>
       <div class="write-box">
-        <input type="text" class="input-phone" placeholder="请输入手机号码" id="phone">
+        <input type="text" class="input-phone" placeholder="请输入手机号码" id="userphone">
         <input type="hidden" name="source_type" value="0">
         <p class="valid-error">请填写手机号码</p>
       </div>
-      <button class="sell-submit" data-clue-entry="01" data-role="navbtn" data-maskname="mask3" data-needpub="1"> 免费卖车 </button>
+      <div class="write-box">
+        <input type="text" class="kj-input" placeholder="请输入验证码" id="yanzhengma">
+        <input type="hidden" name="source_type" value="0"><br/>
+        <a class="button" href="javascript:query();" id="A3" runat="server"><span>获取短信验证码</span></a>
+      </div>
+
+      <div class="login-button">
+        <input type="button"  value="立即提交" class="fM" onclick="sendtosend()" style="line-height:20px" />
+      </div>
       <p class="submit-tip">免费咨询<i class="nub-org">400-877-9288</i></p>
     </form>
   </div>
@@ -309,8 +312,8 @@ $(function () {
     <div class="cent"> Copyright © 2016-2017, snncar.com,All Rights Reserved 皖ICP备16022456号-1</div>
   </div>
 </div>
-<script type="text/javascript" src="script/3c-menu.js"></script> 
-<script type="text/javascript" src="script/lg_reg.js"></script> 
+<script type="text/javascript" src="script/3c-menu.js"></script>
+<script type="text/javascript" src="script/lg_reg.js"></script>
 <!--会员登录和注册弹出框开始-->
 <div id="popBox">
   <div class="popCont"> <a class="p_closed">关闭</a>
@@ -373,4 +376,38 @@ $(function () {
 </div>
 <!--会员登录和注册弹出框结束-->
 </body>
+<script type="text/javascript">
+  function sendtosend() {
+    var carid='[[${a}]]';
+    var userphone=$("#userphone").val();
+    var yanzhengma=$("#yanzhengma").val();
+    alert(userphone);
+    $.ajax({
+      url:"carzx/addSeller",
+      type:"post",
+      data:{
+        userphone:userphone,
+        yanzhengma:yanzhengma
+      },
+      success:function(data){
+
+      }
+    })
+    $("#popBoxprice").fadeOut();
+  }
+  function  query() {
+    var userphone=$("#userphone").val();
+    alert(userphone);
+    $.ajax({
+      url:"../duanxinyanzheng1234",
+      type:"post",
+      data:{
+        userphone:userphone
+      },
+      success:function (data) {
+        alert(data);
+      }
+    })
+  }
+</script>
 </html>

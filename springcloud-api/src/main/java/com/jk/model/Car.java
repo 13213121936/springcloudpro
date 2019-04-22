@@ -25,7 +25,7 @@ public class Car implements Serializable {
 
     private String carname;
     //品牌
-    private Integer cartype;
+    private String cartype;
     //原价
     private Double price;
     //现价
@@ -40,10 +40,6 @@ public class Car implements Serializable {
     private Integer state ;
     //地区
     private String city ;
-
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
-    }
 
     public Integer getCarid() {
         return carid;
@@ -61,11 +57,11 @@ public class Car implements Serializable {
         this.carname = carname;
     }
 
-    public Integer getCartype() {
+    public String getCartype() {
         return cartype;
     }
 
-    public void setCartype(Integer cartype) {
+    public void setCartype(String cartype) {
         this.cartype = cartype;
     }
 
@@ -101,6 +97,14 @@ public class Car implements Serializable {
         this.infoid = infoid;
     }
 
+    public Integer getAudState() {
+        return audState;
+    }
+
+    public void setAudState(Integer audState) {
+        this.audState = audState;
+    }
+
     public Integer getState() {
         return state;
     }
@@ -122,7 +126,7 @@ public class Car implements Serializable {
         return "Car{" +
                 "carid=" + carid +
                 ", carname='" + carname + '\'' +
-                ", cartype=" + cartype +
+                ", cartype='" + cartype + '\'' +
                 ", price=" + price +
                 ", currentprice=" + currentprice +
                 ", img='" + img + '\'' +

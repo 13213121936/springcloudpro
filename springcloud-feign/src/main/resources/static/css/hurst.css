@@ -64,7 +64,7 @@
 .mcar-table table tr td p{font-size:15px;color:#555;}
 .mcar-table table tr td.tda{border-left:none;}
 .mcar-table table tr td.tda p{font-size:14px;}
-.mcar-table table tr td.tda .otherP{border-top:1px solid #dcdcdc;margin-top:10px;padding-top:10px;} 
+.mcar-table table tr td.tda .otherP{border-top:1px solid #dcdcdc;margin-top:10px;padding-top:10px;}
 .needBtn,.cs_ding a.right{width:140px;display:block;height:43px;line-height:43px;background:#3289d3 url(../images/hu5.png) no-repeat 124px center;color:#fff;font-size:14px;text-align:center;}
 .needBtn:hover{background-color:#f60;color:#fff;}
 .mcar-table1 th{text-align:left;background:#e6e6e6;height:42px;line-height:42px;font-size:16px;padding:0 20px;color:#333;}

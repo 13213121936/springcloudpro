@@ -21,7 +21,7 @@ import java.util.List;
  * @create 2019/4/12
  * @since 1.0.0
  */
-@FeignClient(value = "SERVICE-PROVIDER")
+//@FeignClient(value = "SERVICE-PROVIDER")
 public interface UserService {
 
     @GetMapping("/queryUserList")

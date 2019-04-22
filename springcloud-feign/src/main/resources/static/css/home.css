@@ -30,7 +30,7 @@
 /*搜索框*/
 .navigation .egc-sea-box{margin:10px 0; zoom:1; overflow:hidden; position:relative;}
 .egc-sea-box .sea-ipt-txt{/*height:20px;*/ padding:10px; font-size:12px; color:#888; width:450px;  border:1px solid #e4e4e4; outline:none;}
-.egc-sea-box .search-btn{width:80px; height:37px; display:block; line-height:37px; position:absolute; right:1px; top:1px; text-align:center; color:#fff; background:#00002e;} 
+.egc-sea-box .search-btn{width:80px; height:37px; display:block; line-height:37px; position:absolute; right:1px; top:1px; text-align:center; color:#fff; background:#00002e;}
 .egc-sea-box .search-btn:hover { background-color:#f79630; color:#fff;}
 .egc-sea-box .search-btn.on{border-color:#00002e;}
 .egc-sea-box .search-btn.on:hover{background-color:#f79630;}
@@ -52,19 +52,19 @@
 .navigation-mb-list .listcon ul li a{font-size:14px; color:#fff; display:block; padding:15px; border-bottom:1px solid #888; transition:all 0.5s ease; -moz-transition:all 0.5s ease; -webkit-transition:all 0.5s ease;}
 .navigation-mb-list .listcon ul li a:hover{color:#FF0; background:rgba(0,0,0,.4) ;}
 .navigation-mb-list .list-close-btn{font-size:0; color:#fff; width:32px; height:32px;  margin:30px auto 0 auto; display:block;}
-.navigation-mb-list .list-close-btn img,.egc-search .search-box a.close img{ /* 1st set of icons. Rotate them 360deg onmouseover and out */ 
--moz-transition: all 0.8s ease-in-out; 
--webkit-transition: all 0.8s ease-in-out; 
--o-transition: all 0.8s ease-in-out; 
--ms-transition: all 0.8s ease-in-out; 
-transition: all 0.8s ease-in-out; 
-} 
-.navigation-mb-list .list-close-btn img:hover,.egc-search .search-box a.close img:hover{ 
--moz-transform: rotate(360deg); 
--webkit-transform: rotate(360deg); 
--o-transform: rotate(360deg); 
--ms-transform: rotate(360deg); 
-transform: rotate(360deg); 
+.navigation-mb-list .list-close-btn img,.egc-search .search-box a.close img{ /* 1st set of icons. Rotate them 360deg onmouseover and out */
+	-moz-transition: all 0.8s ease-in-out;
+	-webkit-transition: all 0.8s ease-in-out;
+	-o-transition: all 0.8s ease-in-out;
+	-ms-transition: all 0.8s ease-in-out;
+	transition: all 0.8s ease-in-out;
+}
+.navigation-mb-list .list-close-btn img:hover,.egc-search .search-box a.close img:hover{
+	-moz-transform: rotate(360deg);
+	-webkit-transform: rotate(360deg);
+	-o-transform: rotate(360deg);
+	-ms-transform: rotate(360deg);
+	transform: rotate(360deg);
 }
 
 /*搜索2*/
@@ -111,10 +111,10 @@ transform: rotate(360deg);
 /* 卖车 */
 .all-sort-list { position:relative; width:265px;  border-top:none; margin-bottom:5px;}
 .all-sort-list .item { clear:both; font-family:"Microsoft Yahei";}
-.all-sort-list .item.bo { border-top:none; } 
+.all-sort-list .item.bo { border-top:none; }
 .all-sort-list .item h3 { height:100px; font-size:14px; font-family:microsoft yahei; font-weight:normal; width:265px; margin:0 auto; text-indent:0px; text-align:left;border-bottom:1px dashed #ddd; border-top:1px solid #fff; border-left:1px solid #fff; }
 .all-sort-list .item h3 ul{ display:block; width:240px; padding:0px 10px;}
-.all-sort-list .item h3 ul li{ float:left; padding:5px; font-size:12px; color:#666;} 
+.all-sort-list .item h3 ul li{ float:left; padding:5px; font-size:12px; color:#666;}
 .all-sort-list .item h3 ul li a{ color:#666;}
 .all-sort-list .item h3 a{ font-size:14px;}
 .all-sort-list .item .border{ height:34px;  width:235px; margin:0 auto;  line-height:34px; margin:0 auto; background:url(../images/list.jpg) no-repeat right; padding-left:5px; }
@@ -147,10 +147,10 @@ transform: rotate(360deg);
 
 
 .all-sort-list .items { clear:both; font-family:"Microsoft Yahei";}
-.all-sort-list .items.bo { border-top:none; } 
+.all-sort-list .items.bo { border-top:none; }
 .all-sort-list .items h3 { height:100px; font-size:14px; font-family:microsoft yahei; font-weight:normal; width:265px; margin:0 auto; text-indent:0px; text-align:left;border-bottom:1px dashed #ddd; border-top:1px solid #fff; border-left:1px solid #fff; }
 .all-sort-list .items h3 ul{ display:block; width:240px; padding:0px 10px;}
-.all-sort-list .items h3 ul li{ float:left; padding:5px; font-size:12px; color:#666;} 
+.all-sort-list .items h3 ul li{ float:left; padding:5px; font-size:12px; color:#666;}
 .all-sort-list .items h3 ul li a{ color:#666;}
 .all-sort-list .items h3 a{ font-size:14px;}
 .all-sort-list .items .border{ height:34px;  width:235px; margin:0 auto;  line-height:34px; margin:0 auto; padding-left:5px; }
@@ -179,17 +179,17 @@ transform: rotate(360deg);
 .ind-dz-lc{margin:0;padding:0 50px; position:relative;}
 .ind-dz-lc ul li{ float:left; width:192px;  perspective:62px; -webkit-perspective:62px; -moz-webkit-perspective: 62px; -o-webkit-perspective:62px; -ms-webkit-perspective:62px; margin-top:10px;}
 .ind-dz-lc ul li .circle{width:63px; height:63px; background:url(../images/cirle.png) no-repeat; position:relative; margin:0 auto;}
-.ind-dz-lc ul li .circle i{width:43px; height:37px; background:url(../images/cl-icon.png) no-repeat; position:absolute; left:10px; top:12px; 
-transform-style: preserve-3d;
--moz-transform-style: preserve-3d;
--ms-transform-style: preserve-3d;
--o-transform-style: preserve-3d;
--webkit-transform-style: preserve-3d;
-transition:1s ease;
--moz-transition:1s ease;
--ms-transition:1s ease;
--o-transition:1s ease;
--webkit-transition:1s ease;
+.ind-dz-lc ul li .circle i{width:43px; height:37px; background:url(../images/cl-icon.png) no-repeat; position:absolute; left:10px; top:12px;
+	transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	-ms-transform-style: preserve-3d;
+	-o-transform-style: preserve-3d;
+	-webkit-transform-style: preserve-3d;
+	transition:1s ease;
+	-moz-transition:1s ease;
+	-ms-transition:1s ease;
+	-o-transition:1s ease;
+	-webkit-transition:1s ease;
 }
 .ind-dz-lc ul li:hover .circle i{transform: rotateY(180deg); -webkit-transform: rotateY(180deg); -moz-transform: rotateY(180deg); -ms-transform: rotateY(180deg); -o-transform: rotateY(180deg);}
 .ind-dz-lc ul li .circle i.lc-01{ background:url(../images/lc-02.png) center no-repeat;}
@@ -483,11 +483,11 @@ transition:1s ease;
 .input-box label{color:#707070;float:left;margin-right:5px}
 .brand-all em i,.sequen li a i{background-image:url(../images/list_hc-icons-new.png);background-repeat:no-repeat}
 .sequen li a i { width:7px; height:11px; line-height:11px; display:inline-block; margin-left:5px; overflow:hidden;
-    vertical-align:middle;  _vertical-align:3px;}
+	vertical-align:middle;  _vertical-align:3px;}
 .sequen li.first a i.up, .sequen li a:hover i.up { background-position: 0 -29px;}
-.sequen li a i.up { background-position: 0 -16px;}	
+.sequen li a i.up { background-position: 0 -16px;}
 .sequen a:hover{background:#f5f5f5;text-decoration:none;color:#0e103d;font-weight:700}
-	
+
 
 .sel-menu{height:24px;padding-top:10px}
 .sel-p{float:left;color:#666;line-height:24px;padding-right:14px}
@@ -555,7 +555,7 @@ transition:1s ease;
 .cont-tips-qh li.active,.cont-tips-qh li:hover{ padding:0 30px; background-color:#00002e;text-decoration:none;color:#fff}
 .check-tel{margin:10px 20px 0 0}
 .check-tel .teltype{font-size:18px}
-.check-tel{ font-size:18px; color:#00002e;} 
+.check-tel{ font-size:18px; color:#00002e;}
 .apt-btn{display:block;width:124px;height:46px;line-height:46px;text-align:center;color:#fff;font-size:16px;background:#fd8000}
 .apt-btn:hover{background:#fd6000;color:#fff;text-decoration:none}
 
@@ -610,7 +610,7 @@ transition:1s ease;
 
 .jctable{ overflow:hidden; width:532px; margin-bottom:10px;}
 .jctable li{ border-bottom:1px dashed #ddd;text-align:center;float:left;}
-.jctable li span{ display:block; float:left; height:42px; line-height:42px; text-align:center;} 
+.jctable li span{ display:block; float:left; height:42px; line-height:42px; text-align:center;}
 .jctable span.tytd1{ display:block; width:50px; float:left;}
 .jctable span.tytd1 i{ margin-top:12px;}
 .jctable span.tytd2{ display:block; float:left;}
@@ -853,7 +853,7 @@ a.addcar,a.addcar:hover{background-image:url(../images/detail_icon.png);backgrou
 .reportslist{ padding:0 15px; border-bottom:1px dotted #dcdcdc;}
 .reportslist .item{ padding:20px 0;}
 .reportslist .item .img{ float:left; display:block; width:130px; height:75px; text-align:center; vertical-align:middle;}
-.reportslist .txt{ width:685px; float:right; } 
+.reportslist .txt{ width:685px; float:right; }
 .reportslist .hd{ height:30px; font-size:12px;}
 .reportslist .hd a{ color:#2980b9; font-size:16px;}
 .reportslist .hd .myfont{ display:inline-block; margin:0 10px 0 15px;}
@@ -888,7 +888,7 @@ a.addcar,a.addcar:hover{background-image:url(../images/detail_icon.png);backgrou
 .popForm form{padding:20px;}
 .popForm p{padding:0 5px;margin-top:45px;}
 #popBoxYzm input{width:258px; height:38px;  border:1px solid #ddd; line-height:38px; padding: 0 5px;
-    font-size: 16px;font-family:'Microsoft Yahei'}
+	font-size: 16px;font-family:'Microsoft Yahei'}
 .popForm  a.getCode{display:block;background: #0261bf;color: #fff;text-align: center;font-family:'Microsoft Yahei';padding:10px 0;font-size:14px;}
 #popBoxYzm .closed{position:absolute;right:0;top:0;width:35px;line-height:35px;height:35px;text-align:center;background:#0261bf;color:#fff;font-size:17px;font-family:'Microsoft Yahei';font-weight: bold;}
 #popBoxYzm .closed:hover{opacity:.8;color:#fff;}
@@ -898,7 +898,7 @@ a.addcar,a.addcar:hover{background-image:url(../images/detail_icon.png);backgrou
 #popBoxYzmtx {position: fixed;left: 0;top: 0;right: 0;bottom: 0;width: 100%;height: 100%;z-index: 1999;background: rgba(0,0,0,0.6);display: none;}
 .wxts{ width:100%; height:40px; float:left; border-bottom:1px solid #EBEBEB;; font-size:16px; line-height:40px; text-indent:24px; }
 #popBoxYzmtx input{width:258px; height:38px;  border:1px solid #ddd; line-height:38px; padding: 0 5px;
-    font-size: 16px;font-family:'Microsoft Yahei'}
+	font-size: 16px;font-family:'Microsoft Yahei'}
 #popBoxYzmtx .yz_close{position:absolute;right:0;top:0;width:35px;line-height:35px;height:35px;text-align:center;background:#0261bf;color:#fff;font-size:17px;font-family:'Microsoft Yahei';font-weight: bold;}
 #popBoxYzmtx .yz_close:hover{opacity:.8;color:#fff;}
 .tip-item{ margin:20px auto; width:50px; height:50px;}
@@ -925,7 +925,7 @@ a.addcar,a.addcar:hover{background-image:url(../images/detail_icon.png);backgrou
 #fp .co-pan{ position: absolute;top:0;right:100%; margin-right: 1px; overflow: hidden; width:0; }
 
 .co-pan .co-pan-arr { position:absolute; z-index:2; width:12px; height:21px; top:50%; right: 2px;
-    margin-top: -11px; background: url(../images/win-triangle-ico.png) no-repeat; float: right;}
+	margin-top: -11px; background: url(../images/win-triangle-ico.png) no-repeat; float: right;}
 
 
 /***车辆锚点***/
@@ -952,7 +952,7 @@ a.addcar,a.addcar:hover{background-image:url(../images/detail_icon.png);backgrou
 .b_pillar_l2-1,.b_pillar_l2-2,.b_pillar_l2-3{background-position:0 -5190px}
 .b_pillar_r2-1,.b_pillar_r2-2,.b_pillar_r2-3{background-position:0 -5536px}
 .c_pillar_l2-1,.c_pillar_l2-2,.c_pillar_l2-3{background-position:0 -5882px}
-.c_pillar_r2-1,.c_pillar_r2-2,.c_pillar_r2-3{background-position:0 -6228px}	
+.c_pillar_r2-1,.c_pillar_r2-2,.c_pillar_r2-3{background-position:0 -6228px}
 
 .carerror1{ top:290px;left:370px;}
 .appear_pic1{ top:139px; left:460px}
