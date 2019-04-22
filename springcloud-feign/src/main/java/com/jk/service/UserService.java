@@ -7,9 +7,10 @@
  */
 package com.jk.service;
 
-import com.jk.model.User;
+import com.jk.model.Car;
+
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,9 +22,11 @@ import java.util.List;
  * @create 2019/4/12
  * @since 1.0.0
  */
-@FeignClient(value = "SERVICE-PROVIDER")
+@FeignClient(value = "service-provider")
 public interface UserService {
 
-    @GetMapping("/queryUserList")
-    public List<User> queryUserList();
+
+
+    @GetMapping("/queryCarList")
+    List<Car> queryUserList();
 }

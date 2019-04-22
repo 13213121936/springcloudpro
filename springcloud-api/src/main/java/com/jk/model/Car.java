@@ -24,8 +24,10 @@ public class Car implements Serializable {
     private Integer carid;
     //汽车名称
     private String carname;
-    //现价
-    private Integer currentprice;
+    //品牌
+    private String  cartype;
+    //原价
+    private Integer price;
     //汽车图片
     private String img;
 
@@ -45,12 +47,20 @@ public class Car implements Serializable {
         this.carname = carname;
     }
 
-    public Integer getCurrentprice() {
-        return currentprice;
+    public String getCartype() {
+        return cartype;
     }
 
-    public void setCurrentprice(Integer currentprice) {
-        this.currentprice = currentprice;
+    public void setCartype(String cartype) {
+        this.cartype = cartype;
+    }
+
+    public Integer getPrice() {
+        return price;
+    }
+
+    public void setPrice(Integer price) {
+        this.price = price;
     }
 
     public String getImg() {
@@ -66,7 +76,8 @@ public class Car implements Serializable {
         return "Car{" +
                 "carid=" + carid +
                 ", carname='" + carname + '\'' +
-                ", currentprice=" + currentprice +
+                ", cartype='" + cartype + '\'' +
+                ", price=" + price +
                 ", img='" + img + '\'' +
                 '}';
     }

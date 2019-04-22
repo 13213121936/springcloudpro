@@ -26,8 +26,16 @@ public class PageController {
         return "addCar";
     }
 
-    @RequestMapping("toMain")
-    public String toMain(){
+    @RequestMapping("list")
+    public String list(){
+        return "list";
+    }
+    @RequestMapping("index")
+    public String index(){
         return "index";
+    }
+    @RequestMapping("toinfor")
+    public String toinfor(Integer id){
+        return "aa";
     }
 }
