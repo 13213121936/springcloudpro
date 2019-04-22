@@ -12,7 +12,7 @@ package com.jk.model;
 import java.io.Serializable;
 
 /**
- * 〈一句话功能简述〉<br> 
+ * 〈一句话功能简述〉<br>
  * 〈a〉
  *
  * @author zyl

@@ -22,28 +22,12 @@ public class Car implements Serializable {
     private static final long serialVersionUID = 8506191501202450805L;
 
     private Integer carid;
-
+    //汽车名称
     private String carname;
-    //品牌
-    private Integer cartype;
-    //原价
-    private Double price;
     //现价
-    private Double currentprice;
-
+    private Integer currentprice;
+    //汽车图片
     private String img;
-    //详细图片
-    private Integer infoid;
-    //审核状态
-    private Integer audState ;
-    //交易状态
-    private Integer state ;
-    //地区
-    private String city ;
-
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
-    }
 
     public Integer getCarid() {
         return carid;
@@ -61,27 +45,11 @@ public class Car implements Serializable {
         this.carname = carname;
     }
 
-    public Integer getCartype() {
-        return cartype;
-    }
-
-    public void setCartype(Integer cartype) {
-        this.cartype = cartype;
-    }
-
-    public Double getPrice() {
-        return price;
-    }
-
-    public void setPrice(Double price) {
-        this.price = price;
-    }
-
-    public Double getCurrentprice() {
+    public Integer getCurrentprice() {
         return currentprice;
     }
 
-    public void setCurrentprice(Double currentprice) {
+    public void setCurrentprice(Integer currentprice) {
         this.currentprice = currentprice;
     }
 
@@ -93,43 +61,13 @@ public class Car implements Serializable {
         this.img = img;
     }
 
-    public Integer getInfoid() {
-        return infoid;
-    }
-
-    public void setInfoid(Integer infoid) {
-        this.infoid = infoid;
-    }
-
-    public Integer getState() {
-        return state;
-    }
-
-    public void setState(Integer state) {
-        this.state = state;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
     @Override
     public String toString() {
         return "Car{" +
                 "carid=" + carid +
                 ", carname='" + carname + '\'' +
-                ", cartype=" + cartype +
-                ", price=" + price +
                 ", currentprice=" + currentprice +
                 ", img='" + img + '\'' +
-                ", infoid=" + infoid +
-                ", audState=" + audState +
-                ", state=" + state +
-                ", city='" + city + '\'' +
                 '}';
     }
 }
