@@ -956,17 +956,17 @@ $("#sendprice").live("click",function(){
 </script>
 <script type="text/javascript">
 $(function(){
-  var ssss='[[${a}]]';
-  alert(ssss);
-  queryCarList(ssss);
-  q(ssss);
-  qqq(ssss);
-  queryCarInforImg(ssss);
+  var id='[[${a}]]';
+  queryCarList(id);
+  q(id);
+  qqq(id);
+  queryCarInforImg(id);
 })
-  function queryCarList(){
+  function queryCarList(id){
     $.ajax({
       url:"carzx/queryCarList",
       type:"get",
+      data:{id:id},
       success:function(data){
         $("#spancarname").html(data.carname);
         $("#spancarprice").html(data.price);
@@ -975,10 +975,11 @@ $(function(){
           }
     })
   }
-  function q() {
+  function q(id) {
     $.ajax({
       url:"carzx/queryInformation",
       type:"get",
+      data:{id:id},
       success:function(data){
        $("#spancar1").html(data.area);
        $("#spancar2").html(data.cartype);
@@ -1007,7 +1008,6 @@ function sendtosend(){
 }
 function sendtosend1(){
   var ss11='[[${a}]]';
-  alert(ss11);
   var aa=$("#shoujihao").val();
   if(aa==null||aa==""){
     alert("没有手机号，不能提交哦！");
@@ -1024,14 +1024,14 @@ function sendtosend1(){
 
     }
   })
-  alert(aa);
     $('#popBoxYzm').fadeOut();
     alert("预约成功");
 }
-function qqq() {
+function qqq(id) {
   $.ajax({
     url:"carzx/queryCarInforImg",
     type:"get",
+    data:{id:id},
     success:function(data){
       var tt="<ul></ul>";
       for (i=0;i<data.length;i++){
@@ -1042,10 +1042,11 @@ function qqq() {
     }
   })
 }
-function queryCarInforImg() {
+function queryCarInforImg(id) {
   $.ajax({
     url:"carzx/queryCarTrimImg",
     type:"get",
+    data:{id:id},
     success:function(data){
       var tt="<ul></ul>";
       for (i=0;i<data.length;i++){
@@ -1077,7 +1078,6 @@ function addPrice() {
   var yanzhengma=$("#yanzhengma").val();
   var qiwangjia=$("#qiwangjia").val();
   var yuanprice=$("#yuanprice").html();
-  alert(yuanprice);
   $.ajax({
     url:"carzx/addPrice",
     type:"post",

@@ -24,6 +24,7 @@ public class CarBuy implements Serializable {
     private Integer carid;
     private Double psyPrice;
     private Double price;
+    private  String userphone;
 
     public static long getSerialVersionUID() {
         return serialVersionUID;
@@ -69,6 +70,14 @@ public class CarBuy implements Serializable {
         this.price = price;
     }
 
+    public String getUserphone() {
+        return userphone;
+    }
+
+    public void setUserphone(String userphone) {
+        this.userphone = userphone;
+    }
+
     @Override
     public String toString() {
         return "CarBuy{" +
@@ -77,6 +86,7 @@ public class CarBuy implements Serializable {
                 ", carid=" + carid +
                 ", psyPrice=" + psyPrice +
                 ", price=" + price +
+                ", userphone='" + userphone + '\'' +
                 '}';
     }
 }

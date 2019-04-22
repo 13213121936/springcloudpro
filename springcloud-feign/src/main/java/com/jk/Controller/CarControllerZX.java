@@ -46,8 +46,8 @@ public class CarControllerZX {
     //查询汽车实体
     @GetMapping("/carzx/queryCarList")
     @ResponseBody
-    public Car queryCarList() {
-        Integer id = 1;
+    public Car queryCarList(@RequestParam("id") Integer id) {
+         id = 1;
         Car car = carServiceZX.queryCarList(id);
         return car;
     }
@@ -55,18 +55,20 @@ public class CarControllerZX {
     //查询汽车详细信息
     @GetMapping("/carzx/queryInformation")
     @ResponseBody
-    public information queryInformation() {
-        Integer id = 1;
+    public information queryInformation(@RequestParam("id") Integer id) {
+        System.out.println("asd");
+        System.out.println(id);
+        id = 1;
         information infor = carServiceZX.queryInformation(id);
+        System.out.println(infor);
         return infor;
     }
 
     //查询 图片详细
     @GetMapping("/carzx/queryCarInforImg")
     @ResponseBody
-    public List<CarInFor> queryCarInforImg() {
-        Integer id = 1;
-        System.out.println("你是个");
+    public List<CarInFor> queryCarInforImg(@RequestParam("id") Integer id) {
+        id = 1;
         List<CarInFor> list = carServiceZX.queryCarInforImg(id);
         return list;
 
@@ -75,9 +77,8 @@ public class CarControllerZX {
     //查询 图片详细
     @GetMapping("/carzx/queryCarTrimImg")
     @ResponseBody
-    public List<CarInFor> queryCarTrimImg() {
-        Integer id = 1;
-        System.out.println("你是个");
+    public List<CarInFor> queryCarTrimImg(@RequestParam("id") Integer id) {
+        id = 1;
         List<CarInFor> list = carServiceZX.queryCarTrimImg(id);
         return list;
     }
@@ -92,7 +93,6 @@ public class CarControllerZX {
     @RequestMapping("/carzx/addPrice")
     @ResponseBody
     public String addPrice( CarBuy carBuy,String yanzhengma) {
-        System.out.println("1234567890-");
         System.out.println(carBuy);
        String attribute = redisTemplate.opsForValue().get(ConstantConf.STRINGDXYZ+"Verification").toString();
         System.out.println(attribute);
@@ -106,11 +106,11 @@ public class CarControllerZX {
     @ResponseBody
     public String addSeller(@RequestParam("userphone")String userphone,@RequestParam("yanzhengma")String yanzhengma) {
         System.out.println(userphone);
-      /* String attribute = redisTemplate.opsForValue().get(ConstantConf.STRINGDXYZ+"Verification").toString();
+        String attribute = redisTemplate.opsForValue().get(ConstantConf.STRINGDXYZ+"Verification").toString();
         System.out.println(attribute);
         if (!attribute.equals(yanzhengma)) {
             return "验证码不正确";//验证码不正确
-        }*/
+        }
         carServiceZX.addSeller(userphone);
         return "提交成功";
     }

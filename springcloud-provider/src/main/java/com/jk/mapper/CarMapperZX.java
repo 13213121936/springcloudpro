@@ -43,7 +43,7 @@ public interface CarMapperZX {
     @Insert("INSERT INTO t_reserve (phone,reserve,carid) VALUES(#{phone},0,#{carid})")
     void addPhone(@Param("phone") String phone,@Param("carid") Integer carid);
 
-    @Insert("INSERT INTO t_carbuy (status,carid,psyPrice,price) VALUES(1,#{carid},#{psyPrice},#{price})")
+    @Insert("INSERT INTO t_carbuy (status,carid,psyPrice,price,userphone) VALUES(1,#{carid},#{psyPrice},#{price},#{userphone})")
     void addPrice(@RequestBody CarBuy carBuy);
     @Insert("INSERT INTO t_seller (phone,status) VALUES(#{value},0)")
     void addSeller(@RequestParam("id")String userphone);
