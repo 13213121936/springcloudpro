@@ -10,6 +10,7 @@
 package com.jk.Controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
@@ -29,6 +30,17 @@ public class PageController {
     @RequestMapping("toMain")
     public String toMain(){
         return "index";
+    }
+    @RequestMapping("tomaiche")
+    public String tomaiche(){
+        return "wymc";
+    }
+
+    @RequestMapping("toinfor")
+    public String toinfor(Model model){
+        int id=333333;
+        model.addAttribute("a",id);
+        return "infor";
     }
 
 

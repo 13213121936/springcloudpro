@@ -1,66 +1,66 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>阳光好车</title>
-<link rel="stylesheet" type="text/css" href="css/base.css"/>
-<link rel="stylesheet" type="text/css" href="css/home.css"/>
-<link rel="stylesheet" type="text/css" href="city/city.css">
-<script type="text/javascript" src="script/jquery-1.8.0.min.js"></script>
-<script type="text/javascript" src="script/home_ban.js"></script>
-<script type="text/javascript" src="script/eg_top_search.js"></script>
-<script type="text/javascript" src="script/city.js"></script>
-<script type="text/javascript" src="script/snncar.js"></script>
-<script type="text/javascript" src="script/superslide.2.1.js"></script>
-<script type="text/javascript">
-$(function(){
-	$('.navmenu li').hover(function(){
-		$('span',this).stop().css('height','2px');
-		$('span',this).animate({
-			left:'0',
-			width:'100%',
-			right:'0'
-		},200);
-	},function(){
-		$('span',this).stop().animate({
-			left:'50%',
-			width:'0'
-		},200);
-	});
-});
-</script>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>阳光好车</title>
+  <link rel="stylesheet" type="text/css" href="css/base.css"/>
+  <link rel="stylesheet" type="text/css" href="css/home.css"/>
+  <link rel="stylesheet" type="text/css" href="city/city.css">
+  <script type="text/javascript" src="script/jquery-1.8.0.min.js"></script>
+  <script type="text/javascript" src="script/home_ban.js"></script>
+  <script type="text/javascript" src="script/eg_top_search.js"></script>
+  <script type="text/javascript" src="script/city.js"></script>
+  <script type="text/javascript" src="script/snncar.js"></script>
+  <script type="text/javascript" src="script/superslide.2.1.js"></script>
+  <script type="text/javascript">
+    $(function(){
+      $('.navmenu li').hover(function(){
+        $('span',this).stop().css('height','2px');
+        $('span',this).animate({
+          left:'0',
+          width:'100%',
+          right:'0'
+        },200);
+      },function(){
+        $('span',this).stop().animate({
+          left:'50%',
+          width:'0'
+        },200);
+      });
+    });
+  </script>
 
-<!--搜搜框获取焦点-->
-<script type="text/javascript">
-$(function () {
-$('.sea-ipt-txt').focus(function() { 
-$(this).addClass("on");
-$('.search-btn').addClass("on"); 
-}); 
-$('.sea-ipt-txt').blur(function() { 
-$(this).removeClass("on");
-$('.search-btn').removeClass("on");
-}); 
-});
-</script>
-<!--stress搜索关闭-->
-<script type="text/javascript">
-$(function () {
-	var setTime;
-	$(".sercat .weixin").hover(function () {
-		setTime = setTimeout(function () {
-			$(".sercat .wxewm").show();
-		}, 300);
-	}, function () {
-		if (setTime) {
-			clearTimeout(setTime);
-		}
-		$(".sercat .wxewm").hide();
-	});
-});
-</script>
+  <!--搜搜框获取焦点-->
+  <script type="text/javascript">
+    $(function () {
+      $('.sea-ipt-txt').focus(function() {
+        $(this).addClass("on");
+        $('.search-btn').addClass("on");
+      });
+      $('.sea-ipt-txt').blur(function() {
+        $(this).removeClass("on");
+        $('.search-btn').removeClass("on");
+      });
+    });
+  </script>
+  <!--stress搜索关闭-->
+  <script type="text/javascript">
+    $(function () {
+      var setTime;
+      $(".sercat .weixin").hover(function () {
+        setTime = setTimeout(function () {
+          $(".sercat .wxewm").show();
+        }, 300);
+      }, function () {
+        if (setTime) {
+          clearTimeout(setTime);
+        }
+        $(".sercat .wxewm").hide();
+      });
+    });
+  </script>
 </head>
 <body>
 <div class="egc-top">
@@ -100,11 +100,6 @@ $(function () {
         </div>
       </div>
       <span class="common-bg city-logo"></span> </div>
-    <div class="sea">
-      <div class="egc-sea-box">
-        <input type="text" class="sea-ipt-txt" placeholder="搜索您想要的车" />
-        <a href="#" class="search-btn">搜索</a> </div>
-    </div>
     <div class="hot-phone"> <i></i> <span class="js-change-phone">400-877-9288</span> </div>
   </div>
 </div>
@@ -117,88 +112,48 @@ $(function () {
 </ul>
 <div class="clear_fix"></div>
 <!--所在位置-->
-<div class="crumbp"> <a href="#">首页</a> <em>&gt;</em> <span>个人二手车</span></div>
-<div class="mainbox"> 
+<div class="crumbp"> <a href="http://localhost:8084/toMain">首页</a> <em>&gt;</em> <span>个人二手车</span></div>
+<div class="mainbox">
   <!--车子概况头部-->
   <div class="car-top">
     <div class="row">
-      <div class="mainpic"> <img src="images/car3.jpg" height="390"> <a href="#picture" class="showpic">查看图集</a> </div>
+      <div class="mainpic"> <img id="carimg" src="#" height="390"> <a href="#picture" class="showpic">查看图集</a> </div>
       <div class="carinfor">
-        <h3 class="car-allname">夏利N52011款 夏利N5 1.3L 手动 豪华型带气囊</h3>
+        <h3 class="car-allname"><span id="spancarname"></span></h3>
         <div class="price-box">
           <div class="price-infor">
-            <p><span class="nowprice">2.30万元</span></p>
+            <p><span class="nowprice"><span id="spancarprice"></span>元</span></p>
           </div>
-          <div class="price_button" id="sendprice">点击进行砍价</div>
+          <div  class="price_button" id="sendprice">点击进行砍价</div>
         </div>
         <div class="clear_fix"></div>
         <div class="item-box">
           <div class="itemlist rightline">
             <p class="text-muted">上牌城市</p>
-            <p>合肥</p>
+            <span id="xiang1"></span>
           </div>
           <div class="itemlist rightline">
             <p class="text-muted">上牌时间</p>
-            <p>2012-06</p>
+            <p><span id="xiang2"></span></p>
           </div>
           <div class="itemlist rightline">
             <p class="text-muted">表显里程</p>
-            <p>4.20万公里</p>
+            <p><span id="xiang3"></span>万公里</p>
           </div>
           <div class="itemlist rightline">
             <p class="text-muted">排量</p>
-            <p>1.3</p>
+            <p><span id="xiang4"></span></p>
           </div>
           <div class="itemlist">
             <p class="text-muted">变速箱</p>
-            <p>5挡 手动</p>
+            <p><span id="xiang5"></span></p>
           </div>
         </div>
         <div class="row">
           <div class="tel-box"> 电话咨询 :<em>400-877-9388</em> </div>
           <div class="order_button"> <span class="wanttoprice orderbut" id="sendMESS">预约看车</span> </div>
-          <div class="order_button"><a href="#" class="shouchang" id="sendMESStx">收藏</a><!--<a href="#" class="yshouchang">已收藏</a>-->
-            <div id="fp">
-              <ul style=" position:relative;">
-                <li>
-                  <div class="fenxiang">分享</div>
-                  <div class="co-pan" width="240" style="top: 50%; margin-top: -34.5px; width: 0px;">
-                    <div style="width:212px;position:relative; ">
-                      <div style="border:1px solid #ddd;padding: 0px 10px;background:#fff;">
-                        <div style="border-bottom:1px solid #ddd; line-height:30px; color:#333; font-size:16px; text-align:left;">分享到：</div>
-                        <div>
-                          <div class="bdsharebuttonbox bdshare-button-style1-24" data-bd-bind="1479453771421"> <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a> <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a> <a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a> <a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a> <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a> <a href="#" class="bds_tqf" data-cmd="tqf" title="腾讯朋友"></a> </div>
-                          <script>
-                        window._bd_share_config = {
-                            common : {
-                                "bdSnsKey":{},
-                                "bdText":"",
-                                "bdMini":"2",
-                                "bdMiniList":false,
-                                "bdPic":"",
-                                "bdStyle":"1",
-                                "bdSize":"16"
-                            },
-                            share : [{
-                                "bdSize" : 24,
-                            }],
-                            
-                            selectShare : [{
-                                "bdselectMiniList" : ['qzone','tsina','tqq','renren','weixin','tqf']
-                            }]
-                        }
-                        with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
-                        </script> 
-                        </div>
-                      </div>
-                      <div class="co-pan-arr" style="right:-11px;"></div>
-                    </div>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
         </div>
+
         <!--优势-->
         <div class="advantage">
           <h3>阳光好车已对该车辆进行检测，并将提供售后服务及保障。</h3>
@@ -237,7 +192,6 @@ $(function () {
         <li><a href="#base" rel="nofollow">基本信息</a></li>
         <li><a href="#picture" rel="nofollow">车辆图片</a></li>
         <li><a href="#report" rel="nofollow">检测报告</a></li>
-        <li><a href="#luxian" rel="nofollow">看车路线</a></li>
       </ul>
     </div>
   </div>
@@ -261,87 +215,59 @@ $(function () {
       </div>
     </div>
   </div>
-  <div id="base"> 
+  <div id="base">
     <!--基本信息-->
     <div class="titles">
       <h2>基本信息</h2>
     </div>
     <div class="ca-table">
       <table>
-        <tbody>
-          <tr>
-            <td class="ca-td1">归属地：</td>
-            <td>北京</td>
-            <td class="ca-td1">车型：</td>
-            <td>小型车</td>
-            <td class="ca-td1">颜色：</td>
-            <td>白色</td>
-            <td class="ca-td1">排量：</td>
-            <td>1.8</td>
-          </tr>
-          <tr>
-            <td class="ca-td1">变速箱：</td>
-            <td>自动 </td>
-            <td class="ca-td1">行驶里程：</td>
-            <td>20.00万公里</td>
-            <td class="ca-td1">国产进口：</td>
-            <td>无</td>
-            <td class="ca-td1">上牌日期：</td>
-            <td>2014-02</td>
-          </tr>
-          <tr>
-            <td class="ca-td1">变速箱：</td>
-            <td>自动 </td>
-            <td class="ca-td1">行驶里程：</td>
-            <td>20.00万公里</td>
-            <td class="ca-td1">国产进口：</td>
-            <td>无</td>
-            <td class="ca-td1">上牌日期：</td>
-            <td>2014-02</td>
-          </tr>
-          <tr>
-            <td class="ca-td1">燃油类型：</td>
-            <td>汽油 </td>
-            <td class="ca-td1">排放标准：</td>
-            <td> 国4</td>
-            <td class="ca-td1">年检到期：</td>
-            <td> 2016-08</td>
-            <td class="ca-td1">保险到期：</td>
-            <td>2014-02</td>
-          </tr>
-          <tr>
-            <td colspan="8"><p>爱车外观设计大气，顺畅的线条，银色的车身颜色，爱车现在开出去也不会觉得过时。内饰精致实用，干净整洁，基本功能齐全，空
-                间可以满足家庭用车需求，后排乘坐三个成年人也不会觉得很压抑。主要家用，偶尔长途，接送小孩，上下班代步，4S店定期保养，
-                现因个人原因出手爱车，有喜欢的朋友可提前打电话预约试车。</p></td>
-          </tr>
+        <tbody id="carTable">
+        <tr>
+          <td class="ca-td1">归属地：</td>
+          <td><span id="spancar1"></span></td>
+          <td class="ca-td1">车型：</td>
+          <td><span id="spancar2"></span></td>
+          <td class="ca-td1">颜色：</td>
+          <td><span id="spancar3"></span></td>
+          <td class="ca-td1">排量：</td>
+          <td><span id="spancar4"></span></td>
+        </tr>
+        <tr>
+          <td class="ca-td1">变速箱：</td>
+          <td><span id="spancar5"></span></td>
+          <td class="ca-td1">行驶里程：</td>
+          <td><span id="spancar6"></span>万公里</td>
+          <td class="ca-td1">国产进口：</td>
+          <td><span id="spancar7"></span></td>
+          <td class="ca-td1">上牌日期：</td>
+          <td><span id="spancar8"></span></td>
+        </tr>
+        <tr>
+          <td class="ca-td1">燃油类型：</td>
+          <td><span id="spancar9"></span></td>
+          <td class="ca-td1">排放标准：</td>
+          <td><span id="spancar10"></span></td>
+          <td class="ca-td1">年检到期：</td>
+          <td><span id="spancar11"></span></td>
+          <td class="ca-td1">保险到期：</td>
+          <td><span id="spancar12"></span></td>
+        </tr>
+        <tr>
+          <td colspan="8"><p>爱车外观设计大气，顺畅的线条，银色的车身颜色，爱车现在开出去也不会觉得过时。内饰精致实用，干净整洁，基本功能齐全，空
+            间可以满足家庭用车需求，后排乘坐三个成年人也不会觉得很压抑。主要家用，偶尔长途，接送小孩，上下班代步，4S店定期保养，
+            现因个人原因出手爱车，有喜欢的朋友可提前打电话预约试车。</p></td>
+        </tr>
         </tbody>
       </table>
     </div>
   </div>
-  <div id="picture"> 
-    <!--车俩图片-->
+  <div id="picture">
+    <!--车辆图片-->
     <div class="titles">
-      <h2>车俩图片</h2>
+      <h2>车辆图片</h2>
     </div>
-    <ul class="carpiclist">
-      <li class="fl"><img src="images/demo2_b.jpg" width="590" height="500" />
-        <p class="top-banner"> <span class="title">外观-左前</span> <span class="desc">车身内饰干净整洁</span> </p>
-      </li>
-      <li class="fr"><img src="images/demo2_b.jpg" width="590" height="500" />
-        <p class="top-banner"> <span class="title">外观-左前</span> <span class="desc">车身内饰干净整洁</span> </p>
-      </li>
-      <li class="fl"><img src="images/demo2_b.jpg" width="590" height="500" />
-        <p class="top-banner"> <span class="title">外观-左前</span> <span class="desc">车身内饰干净整洁</span> </p>
-      </li>
-      <li class="fr"><img src="images/demo2_b.jpg" width="590" height="500" />
-        <p class="top-banner"> <span class="title">外观-左前</span> <span class="desc">车身内饰干净整洁</span> </p>
-      </li>
-      <li class="fl"><img src="images/demo2_b.jpg" width="590" height="500" />
-        <p class="top-banner"> <span class="title">外观-左前</span> <span class="desc">车身内饰干净整洁</span> </p>
-      </li>
-      <li class="fr"><img src="images/demo2_b.jpg" width="590" height="500" />
-        <p class="top-banner"> <span class="title">外观-左前</span> <span class="desc">车身内饰干净整洁</span> </p>
-      </li>
+    <ul class="carpiclist" id="carul">
     </ul>
     <div class="clear_fix"></div>
     <!--车俩图片-->
@@ -351,31 +277,13 @@ $(function () {
     <div class="picMarquee-left1">
       <div class="hd"> <a class="next"></a> <a class="prev"></a> </div>
       <div class="bd">
-        <ul class="picList">
-          <li>
-            <div class="pic"><img src="images/car3.jpg" /></div>
-          </li>
-          <li>
-            <div class="pic"><img src="images/car3.jpg" /></div>
-          </li>
-          <li>
-            <div class="pic"><img src="images/car3.jpg" /></div>
-          </li>
-          <li>
-            <div class="pic"><img src="images/car3.jpg" /></div>
-          </li>
-          <li>
-            <div class="pic"><img src="images/car3.jpg" /></div>
-          </li>
-          <li>
-            <div class="pic"><img src="images/car3.jpg" /></div>
-          </li>
+        <ul class="picList" id="ulul">
         </ul>
       </div>
     </div>
     <script type="text/javascript">
-		jQuery(".picMarquee-left1").slide({titCell:".hd ul",mainCell:".bd ul",autoPage:true,effect:"left",autoPlay:false,vis:4});
-		</script> 
+      jQuery(".picMarquee-left1").slide({titCell:".hd ul",mainCell:".bd ul",autoPage:true,effect:"left",autoPlay:false,vis:4});
+    </script>
   </div>
   <!--检测报告-->
   <div id="report">
@@ -393,7 +301,7 @@ $(function () {
           <div class="bitpic"><img src="images/car-detection-new-2.png"></div>
           <div class="bitbox">
             <p class="yahei f16 f-type04">排除火烧</p>
-            <ul class="jctable">
+            <ul class="jctable" id="huoshao">
               <li><span class="tytd1"><i class="via-icon03"></i></span><span class="tytd2">舱内保险丝盒无火烧熏黑痕迹</span></li>
               <li><span class="tytd1"><i class="via-icon04"></i></span><span class="tytd2">车辆覆盖件无火烧痕迹</span></li>
               <li><span class="tytd1"><i class="via-icon03"></i></span><span class="tytd2">发动机线束无火烧痕迹</span></li>
@@ -436,16 +344,16 @@ $(function () {
               <li><span class="tytd1"><i class="via-icon03"></i></span><span class="tytd2">仪表台座内电线和接头无异味、泥沙</span></li>
             </ul>
           </div>
-          
+
         </div>
       </div>
       <div class="headline-bd" id="exterior_check"> <span class="headline yahei">外观内饰检测</span> <span class="f14">该车有漆面修复痕迹，无钣金修复，覆盖件无更换，外观有轻微缺陷。&nbsp;该车安全系统无故障，灯光系统工作正常，设备正常，无加装，内饰整洁干净。</span> </div>
       <div class="detectBox clearfix">
         <div class="outward fl">
-          <div class="appearance-img"> 
+          <div class="appearance-img">
             <!--原厂漆li标签后面class的后缀为_0,漆面修复li标签后面class的后缀为_1,钣金修复li标签后面class的后缀为_2，外观件更换li标签后面class的后缀为_3。-->
             <div class="caption-bd"> <span><i class="gray-rd"></i>原厂漆</span> <span><i class="gray-rd2"></i>漆面修复</span> <span><i class="blue-rd"></i>钣金修复</span> <span><i class="red-rd"></i>外观件更换</span> <span><i class="n-rd"></i>查看缺陷照片</span> </div>
-            <div class="appearance-con clueEvaluate"> <img src="images/car-appearance-2.png"> 
+            <div class="appearance-con clueEvaluate"> <img src="images/car-appearance-2.png">
               <!--此块区域样式为车身颜色变化区域 0代表原厂漆 1代表漆面修复 2代表钣金修复 3代表外观件更换-->
               <ul class="areabox">
                 <!--右前翼子板-->
@@ -752,165 +660,6 @@ $(function () {
       </div>
     </div>
   </div>
-  <div id="luxian"> 
-    <!--看车路线-->
-    <div class="titles">
-      <h2>看车路线</h2>
-    </div>
-    <div class="ban-content" style=" padding:40px; position:relative; ">
-      <div id="lumap"> 
-        <!--引用百度地图API-->
-        <style type="text/css">
-    html,body{margin:0;padding:0;}
-    .iw_poi_title {color:#CC5522;font-size:14px;font-weight:bold;overflow:hidden;padding-right:13px;white-space:nowrap}
-    .iw_poi_content {font:12px arial,sans-serif;overflow:visible;padding-top:4px;white-space:-moz-pre-wrap;word-wrap:break-word}
-</style>
-        <script type="text/javascript" src="http://api.map.baidu.com/api?key=&v=1.1&services=true"></script> 
-        
-        <!--百度地图容器-->
-        <div style="width:680px;height:300px;" id="dituContent"></div>
-        <script type="text/javascript">
-    //创建和初始化地图函数：
-    function initMap(){
-        createMap();//创建地图
-        setMapEvent();//设置地图事件
-        addMapControl();//向地图添加控件
-        addMarker();//向地图中添加marker
-    }
-    
-    //创建地图函数：
-    function createMap(){
-        var map = new BMap.Map("dituContent");//在百度地图容器中创建一个地图
-        var point = new BMap.Point(117.27254,31.885679);//定义一个中心点坐标
-        map.centerAndZoom(point,18);//设定地图的中心点和坐标并将地图显示在地图容器中
-        window.map = map;//将map变量存储在全局
-    }
-    
-    //地图事件设置函数：
-    function setMapEvent(){
-        map.enableDragging();//启用地图拖拽事件，默认启用(可不写)
-        map.enableScrollWheelZoom();//启用地图滚轮放大缩小
-        map.enableDoubleClickZoom();//启用鼠标双击放大，默认启用(可不写)
-        map.enableKeyboard();//启用键盘上下左右键移动地图
-    }
-    
-    //地图控件添加函数：
-    function addMapControl(){
-        //向地图中添加缩放控件
-	var ctrl_nav = new BMap.NavigationControl({anchor:BMAP_ANCHOR_TOP_LEFT,type:BMAP_NAVIGATION_CONTROL_LARGE});
-	map.addControl(ctrl_nav);
-        //向地图中添加缩略图控件
-	var ctrl_ove = new BMap.OverviewMapControl({anchor:BMAP_ANCHOR_BOTTOM_RIGHT,isOpen:1});
-	map.addControl(ctrl_ove);
-        //向地图中添加比例尺控件
-	var ctrl_sca = new BMap.ScaleControl({anchor:BMAP_ANCHOR_BOTTOM_LEFT});
-	map.addControl(ctrl_sca);
-    }
-    
-    //标注点数组
-    var markerArr = [{title:"安徽省众隆在线投资管理有限公司",content:"地址：安徽省合肥市庐阳区北一环祥源广场B座12F<br/>全国服务热线：400-090-1268<br/>联系电话：0551-63772628",point:"117.272005|31.885464",isOpen:1,icon:{w:23,h:25,l:46,t:21,x:9,lb:12}}
-		 ];
-    //创建marker
-    function addMarker(){
-        for(var i=0;i<markerArr.length;i++){
-            var json = markerArr[i];
-            var p0 = json.point.split("|")[0];
-            var p1 = json.point.split("|")[1];
-            var point = new BMap.Point(p0,p1);
-			var iconImg = createIcon(json.icon);
-            var marker = new BMap.Marker(point,{icon:iconImg});
-			var iw = createInfoWindow(i);
-			var label = new BMap.Label(json.title,{"offset":new BMap.Size(json.icon.lb-json.icon.x+10,-20)});
-			marker.setLabel(label);
-            map.addOverlay(marker);
-            label.setStyle({
-                        borderColor:"#808080",
-                        color:"#333",
-                        cursor:"pointer"
-            });
-			
-			(function(){
-				var index = i;
-				var _iw = createInfoWindow(i);
-				var _marker = marker;
-				_marker.addEventListener("click",function(){
-				    this.openInfoWindow(_iw);
-			    });
-			    _iw.addEventListener("open",function(){
-				    _marker.getLabel().hide();
-			    })
-			    _iw.addEventListener("close",function(){
-				    _marker.getLabel().show();
-			    })
-				label.addEventListener("click",function(){
-				    _marker.openInfoWindow(_iw);
-			    })
-				if(!!json.isOpen){
-					label.hide();
-					_marker.openInfoWindow(_iw);
-				}
-			})()
-        }
-    }
-    //创建InfoWindow
-    function createInfoWindow(i){
-        var json = markerArr[i];
-        var iw = new BMap.InfoWindow("<b class='iw_poi_title' title='" + json.title + "'>" + json.title + "</b><div class='iw_poi_content'>"+json.content+"</div>");
-        return iw;
-    }
-    //创建一个Icon
-    function createIcon(json){
-        var icon = new BMap.Icon("http://app.baidu.com/map/images/us_mk_icon.png", new BMap.Size(json.w,json.h),{imageOffset: new BMap.Size(-json.l,-json.t),infoWindowOffset:new BMap.Size(json.lb+5,1),offset:new BMap.Size(json.x,json.h)})
-        return icon;
-    }
-    
-    initMap();//创建和初始化地图
-</script> 
-      </div>
-      <div class="lumap-right">
-        <div style="color:#000; font-size:24px;"><a target="_blank" href="#">合肥清溪服务中心</a></div>
-        <div>门店电话：<span style="color:#ee7800; font-size:18px;">400-068-5858&nbsp;&nbsp;转&nbsp;&nbsp;186409</span></div>
-        <div>门店地址：<span style="color:#202020; font-size:16px;">肥市蜀山区清溪路10号黎阳嘉苑7#商102
-          （大润发往西300米）</span></div>
-        <div style="margin-top:20px;"> <img src="images/store-map-22.jpg"> </div>
-      </div>
-    </div>
-  </div>
-  <!--猜你喜欢-->
-  <div class="titles">
-    <h2>猜你喜欢</h2>
-  </div>
-  <ul class="carList">
-    <li>
-      <div class="list-infoBox"> <a title="奇瑞QQ3 2012款 QQ3 0.8 手动 梦想版" target="_blank" class="imgtype" href="#"> <img width="290" height="194" src="images/carimg.jpg" alt="奇瑞QQ3 2012款 QQ3 0.8 手动 梦想版"> </a>
-        <p class="infoBox"> <a title="奇瑞QQ3 2012款 QQ3 0.8 手动 梦想版" href="#" target="_blank" class="info-title">奇瑞QQ3 2012款 QQ3 0.8 手动 梦想版</a> </p>
-        <p class="fc-gray"> <span class="tag-gray">石家庄</span> <span class="">2014年11月上牌</span> <em class="shuxian">|</em> 行驶2.4万公里 </p>
-        <p class="priType-s"> <span> <i class="fc-org priType"> 2.10万 </i> </span> <s>3.40万</s> </p>
-      </div>
-    </li>
-    <li>
-      <div class="list-infoBox"> <a title="奇瑞QQ3 2012款 QQ3 0.8 手动 梦想版" target="_blank" class="imgtype" href="#"> <img width="290" height="194" src="images/carimg.jpg" alt="奇瑞QQ3 2012款 QQ3 0.8 手动 梦想版"> </a>
-        <p class="infoBox"> <a title="奇瑞QQ3 2012款 QQ3 0.8 手动 梦想版" href="#" target="_blank" class="info-title">奇瑞QQ3 2012款 QQ3 0.8 手动 梦想版</a> </p>
-        <p class="fc-gray"> <span class="tag-gray">石家庄</span> <span class="">2014年11月上牌</span> <em class="shuxian">|</em> 行驶2.4万公里 </p>
-        <p class="priType-s"> <span> <i class="fc-org priType"> 2.10万 </i> </span> <s>3.40万</s> </p>
-      </div>
-    </li>
-    <li>
-      <div class="list-infoBox"> <a title="奇瑞QQ3 2012款 QQ3 0.8 手动 梦想版" target="_blank" class="imgtype" href="#"> <img width="290" height="194" src="images/carimg.jpg" alt="奇瑞QQ3 2012款 QQ3 0.8 手动 梦想版"><i class="sup-yellow"> <em></em> 急降<br>
-        200元 </i> </a>
-        <p class="infoBox"> <a title="奇瑞QQ3 2012款 QQ3 0.8 手动 梦想版" href="#" target="_blank" class="info-title">奇瑞QQ3 2012款 QQ3 0.8 手动 梦想版</a> </p>
-        <p class="fc-gray"> <span class="tag-gray">石家庄</span> <span class="">2014年11月上牌</span> <em class="shuxian">|</em> 行驶2.4万公里 </p>
-        <p class="priType-s"><em class="tag-blue">里程少</em> <span> <i class="fc-org priType"> 2.10万 </i> </span> <s>3.40万</s> </p>
-      </div>
-    </li>
-    <li>
-      <div class="list-infoBox"> <a title="奇瑞QQ3 2012款 QQ3 0.8 手动 梦想版" target="_blank" class="imgtype" href="#"> <img width="290" height="194" src="images/carimg.jpg" alt="奇瑞QQ3 2012款 QQ3 0.8 手动 梦想版"> </a>
-        <p class="infoBox"> <a title="奇瑞QQ3 2012款 QQ3 0.8 手动 梦想版" href="#" target="_blank" class="info-title">奇瑞QQ3 2012款 QQ3 0.8 手动 梦想版</a> </p>
-        <p class="fc-gray"> <span class="tag-gray">石家庄</span> <span class="">2014年11月上牌</span> <em class="shuxian">|</em> 行驶2.4万公里 </p>
-        <p class="priType-s"> <em class="tag-red">急售</em> <em class="tag-green">准新车</em> <em class="tag-yellow">超值</em> <span> <i class="fc-org priType"> 9.45万 </i> </span> <s>13.00万</s> </p>
-      </div>
-    </li>
-  </ul>
   <div class="clear_fix"></div>
   <!--购车流程-->
   <div class="how-deal">
@@ -978,8 +727,8 @@ $(function () {
     <div class="cent"> Copyright © 2016-2017, snncar.com,All Rights Reserved 皖ICP备16022456号-1</div>
   </div>
 </div>
-<script type="text/javascript" src="script/3c-menu.js"></script> 
-<script type="text/javascript" src="script/lg_reg.js"></script> 
+<script type="text/javascript" src="script/3c-menu.js"></script>
+<script type="text/javascript" src="script/lg_reg.js"></script>
 <!--会员登录和注册弹出框开始-->
 <div id="popBox">
   <div class="popCont"> <a class="p_closed">关闭</a>
@@ -1040,33 +789,28 @@ $(function () {
     </div>
   </div>
 </div>
-<!--会员登录和注册弹出框结束--> 
+<!--会员登录和注册弹出框结束-->
 <script type="text/javascript">
-$(".appearance-det").each(function() {
-				$(this).mouseenter(function() {
-					$(this).addClass("active")
-				}).mouseleave(function() {
-					$(this).removeClass("active")
-				})
-			});
+  $(".appearance-det").each(function() {
+    $(this).mouseenter(function() {
+      $(this).addClass("active")
+    }).mouseleave(function() {
+      $(this).removeClass("active")
+    })
+  });
 </script>
 <!--提示弹窗 包含了成功 失败  提醒-->
 <div id="popBoxYzmtx" style="display:block; z-index:999999999999">
   <div class="popForm">
-  <div class="wxts">温馨提示</div>
+    <div class="wxts">温馨提示</div>
     <div class="p-detail">
       <form action="" enctype="multipart/form-data" method="post" name="yzmcheck" id="yzmcheck">
-        
         <ul class="login-items" style="width:100%">
-         <li class="tip-item">
-         <!--成功按钮-->
-         <i class="icon-ok"></i>
-         <!--失败按钮-->
-        <!--<i class="icon-flase"></i>-->
-         <!--提醒按钮-->
-        <!--<i class="icon-no"></i>-->
-      </li>
-      <li class="p-tips">填写手机，阳光客服将在30分钟内联系您看车。</li>
+          <li class="tip-item">
+            <!--成功按钮-->
+            <i class="icon-ok"></i>
+          </li>
+          <li class="p-tips">填写手机，阳光客服将在30分钟内联系您看车。</li>
         </ul>
         <div class="login-button">
           <input type="button"  value="确定" class="fM" onclick="sendtosend()" style="line-height:20px" />
@@ -1075,14 +819,6 @@ $(".appearance-det").each(function() {
     </div>
     <a class="yz_close">×</a> </div>
 </div>
-<script type="text/livescript">
-$("#sendMESStx").live("click",function(){
-		$('#popBoxYzmtx').fadeIn();
-
-});
-</script>
-
-
 <div id="popBoxYzm" style="display:none">
   <div class="popForm">
     <div class="p-detail">
@@ -1095,7 +831,7 @@ $("#sendMESStx").live("click",function(){
           </li>
         </ul>
         <div class="login-button">
-          <input type="button"  value="立即提交" class="fM" onclick="sendtosend()" style="line-height:20px" />
+          <input type="button"  value="立即提交" class="fM" onclick="sendtosend1()" style="line-height:20px" />
         </div>
       </form>
     </div>
@@ -1104,13 +840,11 @@ $("#sendMESStx").live("click",function(){
 <script type="text/livescript">
 $("#sendMESS").live("click",function(){
 		$('#popBoxYzm').fadeIn();
-
 });
-</script> 
+</script>
 <script type="text/livescript">
 $("#sendprice").live("click",function(){
 		$('#popBoxprice').fadeIn();
-
 });
 </script>
 <div id="popBoxprice" style="display:block;">
@@ -1119,62 +853,63 @@ $("#sendprice").live("click",function(){
       <form action="" enctype="multipart/form-data" method="post" name="yzmcheck" id="yzmcheck">
         <div style="text-align: center; padding:6px; color:#fd8000; font-size:16px;">小刀一下，试试能不能少点</div>
         <ul>
-          <li class="first-li">
-            <div class="kj-p">原 价</div>
-            <div class="n-price">4.50万</div>
-          </li>
-          <li>
-            <div class="kj-p">心理价</div>
-            <div class="kj-it">
-              <input type="text" class="kj-input" name="heart_price" placeholder="请输入您的心理价">
-              <div class="kj-error price-tip">心理价最多3位整数，2位小数哦～</div>
-              <em>万</em> </div>
-          </li>
-          <li>
-            <div class="kj-p">手机号</div>
-            <div class="kj-it">
-              <input type="text" class="kj-input" name="phone" placeholder="请输入您的手机号码">
-              <div class="kj-error phone-tip">请填写正确的手机号</div>
-              <button class="kj-get-code js-appoint-get-code">获取验证码</button>
-            </div>
-          </li>
-          <li>
-            <div class="kj-p">验证码</div>
-            <div class="kj-it">
-              <input type="text" class="kj-input" placeholder="请输入您的验证码" name="code">
-              <div class="kj-error code_error">请填写正确的验证码</div>
-            </div>
-          </li>
-        </ul>
+        <li class="first-li">
+          <div class="kj-p">原 价</div>
+          <div class="n-price"><span id="yuanprice"></span>元</div>
+        </li>
+        <li>
+          <div class="kj-p">期望价</div>
+          <div class="kj-it">
+            <input type="text" id="qiwangjia" class="kj-input" name="heart_price" placeholder="请输入您的心理价">
+            <div class="kj-error price-tip">心理价最多3位整数，2位小数哦～</div>
+            <em>元</em> </div>
+        </li>
+        <li>
+          <div class="kj-p">手机号</div>
+          <div class="kj-it">
+            <input type="text" id="userphone" class="kj-input" name="phone" placeholder="请输入您的手机号码">
+            <div class="kj-error phone-tip">请填写正确的手机号</div>
+          </div>
+        </li>
+        <li>
+          <div class="kj-p">验证码</div>
+          <div class="kj-it">
+            <input type="text" id="yanzhengma" class="kj-input" placeholder="请输入您的验证码" name="code">
+            <div class="kj-error code_error">请填写正确的验证码</div>
+          </div>
+          <a class="button" href="javascript:query();" id="A3" runat="server"><span>获取短信验证码</span></a>
+        </li>
+
+      </ul>
         <div class="login-button">
-          <input type="button"  value="立即提交" class="fM" onclick="sendtosend()" style="line-height:20px" />
+          <input type="button"  value="立即提交" class="fM" onclick="addPrice()" style="line-height:20px" />
         </div>
       </form>
     </div>
     <a class="closeds">×</a> </div>
 </div>
 <script type='text/javascript' >
-			var nt = !1;
-			$(window).bind("scroll",
-				function() {
-				var st = $(document).scrollTop();//往下滚的高度
-				nt = nt ? nt: $("#J_m_nav").offset().top;
-				var sel=$("#J_m_nav");
-				if (nt < st) {
-					sel.addClass("nav_fixeds");
-				} else {
-					sel.removeClass("nav_fixeds");
-				}
-			});
-		</script> 
+  var nt = !1;
+  $(window).bind("scroll",
+          function() {
+            var st = $(document).scrollTop();//往下滚的高度
+            nt = nt ? nt: $("#J_m_nav").offset().top;
+            var sel=$("#J_m_nav");
+            if (nt < st) {
+              sel.addClass("nav_fixeds");
+            } else {
+              sel.removeClass("nav_fixeds");
+            }
+          });
+</script>
 <script type="text/javascript">
-		$(function(){
+  $(function(){
     $(".cont-tips-qh li").click(function() {
-        $(this).siblings('li').removeClass('active');  // 删除其他兄弟元素的样式
-        $(this).addClass('active');                            // 添加当前元素的样式
+      $(this).siblings('li').removeClass('active');  // 删除其他兄弟元素的样式
+      $(this).addClass('active');                            // 添加当前元素的样式
     });
-}); 
-		</script>
+  });
+</script>
 <div id="leftsead">
   <ul>
     <li> <a id="top_btn"> <img src="images/foot03/ll06.png" width="47" height="49" class="hides"/> <img src="images/foot03/l06.png" width="47" height="49" class="shows" /> </a> </li>
@@ -1183,44 +918,182 @@ $("#sendprice").live("click",function(){
     <li> <a class="youhui"> <img src="images/foot03/l02.png" width="47" height="49" class="shows" /> <img src="images/foot03/zfew.jpg" width="196" height="205" class="hides" usemap="#taklhtml"/> </a> </li>
   </ul>
 </div>
-<!--leftsead end--> 
-
+<!--leftsead end-->
 <script type="text/javascript">
-$(document).ready(function(){
+  $(document).ready(function(){
+    $("#leftsead a").hover(function(){
+      if($(this).prop("className")=="youhui"){
+        $(this).children("img.hides").show();
+      }else{
+        $(this).children("img.hides").show();
+        $(this).children("img.shows").hide();
+        $(this).children("img.hides").animate({marginRight:'0px'},'slow');
+      }
+    },function(){
+      if($(this).prop("className")=="youhui"){
+        $(this).children("img.hides").hide('slow');
+      }else{
+        $(this).children("img.hides").animate({marginRight:'-143px'},'slow',function(){$(this).hide();$(this).next("img.shows").show();});
+      }
+    });
+    $("#top_btn").click(function(){if(scroll=="off") return;$("html,body").animate({scrollTop: 0}, 600);});
+  });
+</script>
 
-	$("#leftsead a").hover(function(){
-		if($(this).prop("className")=="youhui"){
-			$(this).children("img.hides").show();
-		}else{
-			$(this).children("img.hides").show();
-			$(this).children("img.shows").hide();
-			$(this).children("img.hides").animate({marginRight:'0px'},'slow'); 
-		}
-	},function(){ 
-		if($(this).prop("className")=="youhui"){
-			$(this).children("img.hides").hide('slow');
-		}else{
-			$(this).children("img.hides").animate({marginRight:'-143px'},'slow',function(){$(this).hide();$(this).next("img.shows").show();});
-		}
-	});
-
-	$("#top_btn").click(function(){if(scroll=="off") return;$("html,body").animate({scrollTop: 0}, 600);});
-
-});
-</script> 
 <script>
-	$(function(){
-		$("#fp ul li").hover(function(){
-			 $pan=$(this).find(".co-pan");
-			 var cwidth=$pan.attr('width');
-			 var cheight=$pan.height();
-			 $(this).find(".co-pan").not(".cf-item").css({"top":"35px","right":"80px",});
-			 $pan.stop(true,false).animate({"width":cwidth + "px"},300);
-		},function(){
-			 $pan=$(this).find(".co-pan");
-			 $pan.stop(true,false).animate({"width":"0px"},300);
-		});
-		});
+  $(function(){
+    $("#fp ul li").hover(function(){
+      $pan=$(this).find(".co-pan");
+      var cwidth=$pan.attr('width');
+      var cheight=$pan.height();
+      $(this).find(".co-pan").not(".cf-item").css({"top":"35px","right":"80px",});
+      $pan.stop(true,false).animate({"width":cwidth + "px"},300);
+    },function(){
+      $pan=$(this).find(".co-pan");
+      $pan.stop(true,false).animate({"width":"0px"},300);
+    });
+  });
+</script>
+<script type="text/javascript">
+$(function(){
+  var ssss='[[${a}]]';
+  alert(ssss);
+  queryCarList(ssss);
+  q(ssss);
+  qqq(ssss);
+  queryCarInforImg(ssss);
+})
+  function queryCarList(){
+    $.ajax({
+      url:"carzx/queryCarList",
+      type:"get",
+      success:function(data){
+        $("#spancarname").html(data.carname);
+        $("#spancarprice").html(data.price);
+        $("#yuanprice").html(data.price);
+        $("#carimg").attr('src',data.img);
+          }
+    })
+  }
+  function q() {
+    $.ajax({
+      url:"carzx/queryInformation",
+      type:"get",
+      success:function(data){
+       $("#spancar1").html(data.area);
+       $("#spancar2").html(data.cartype);
+       $("#spancar3").html(data.color);
+       $("#spancar4").html(data.displacement);
+       $("#spancar5").html(data.speed);
+       $("#spancar6").html(data.travel);
+       $("#spancar7").html(data.imports);
+       $("#spancar8").html(data.regTime);
+       $("#spancar9").html(data.fT);
+       $("#spancar10").html(data.es);
+       $("#spancar11").html(data.annualtime);
+       $("#spancar12").html(data.insuranceTime);
+       $("#xiang1").html(data.area);
+       $("#xiang2").html(data.regTime);
+       $("#xiang3").html(data.travel);
+       $("#xiang4").html(data.displacement);
+       $("#xiang5").html(data.speed);
+      }
+    })
+  }
+function sendtosend(){
+
+    $('#popBoxYzm').fadeOut();
+  $('#popBoxYzmtx').fadeOut();
+}
+function sendtosend1(){
+  var ss11='[[${a}]]';
+  alert(ss11);
+  var aa=$("#shoujihao").val();
+  if(aa==null||aa==""){
+    alert("没有手机号，不能提交哦！");
+    return;
+  }
+  $.ajax({
+    url:"carzx/addPhone",
+    type:"post",
+    data:{
+      phone:aa,
+      carid:ss11
+    },
+    success:function(data){
+
+    }
+  })
+  alert(aa);
+    $('#popBoxYzm').fadeOut();
+    alert("预约成功");
+}
+function qqq() {
+  $.ajax({
+    url:"carzx/queryCarInforImg",
+    type:"get",
+    success:function(data){
+      var tt="<ul></ul>";
+      for (i=0;i<data.length;i++){
+        tt+="<li><img src='"+data[i].img+"' width='200px' height='150px'/></li>"
+      }
+     var hh="<ul>"+tt+"</ul>";
+      $("#ulul").html(hh)
+    }
+  })
+}
+function queryCarInforImg() {
+  $.ajax({
+    url:"carzx/queryCarTrimImg",
+    type:"get",
+    success:function(data){
+      var tt="<ul></ul>";
+      for (i=0;i<data.length;i++){
+        tt+="<li class='fl'><img src='"+data[i].img+"' width='590' height='500' />\n" +
+                "<p class='top-banner'> <span class='title'>"+data[i].title+"</span><span class='desc'>"+data[i].info+"</span> </p>\n" +
+                "</li>"
+      }
+     var hh="<ul>"+tt+"</ul>";
+      $("#carul").html(hh);
+    }
+  })
+}
+function  query() {
+  var userphone=$("#userphone").val();
+  $.ajax({
+    url:"../duanxinyanzheng",
+    type:"post",
+    data:{
+      userphone:userphone
+    },
+    success:function (data) {
+      alert(data);
+    }
+  })
+}
+function addPrice() {
+  var carid='[[${a}]]';
+  var userphone=$("#userphone").val();
+  var yanzhengma=$("#yanzhengma").val();
+  var qiwangjia=$("#qiwangjia").val();
+  var yuanprice=$("#yuanprice").html();
+  alert(yuanprice);
+  $.ajax({
+    url:"carzx/addPrice",
+    type:"post",
+    data:{
+        carid:carid,
+        userphone:userphone,
+        psyPrice:qiwangjia,
+        price:yuanprice,
+        yanzhengma:yanzhengma
+    },
+    success:function(data){
+
+    }
+  })
+  $("#popBoxprice").fadeOut();
+}
 </script>
 </body>
 </html>

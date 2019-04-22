@@ -7,7 +7,7 @@ spring:
     name: service-provider
   datasource:
     driverClassName: com.mysql.jdbc.Driver
-    url: jdbc:mysql://192.168.0.149:3306/projects?useUnicode=true&characterEncoding=utf-8
+    url: jdbc:mysql://192.168.0.150:3306/projects?useUnicode=true&characterEncoding=utf-8
     username: ygq
     password: 456789
 eureka:
@@ -22,3 +22,4 @@ eureka:
     config-locations: classpath:mybatis/confg.xml
     mapper-locations: classpath:mybatis/mapper/*.xml
     type-aliases-package: com.jk.model
+

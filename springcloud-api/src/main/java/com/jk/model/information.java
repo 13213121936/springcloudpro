@@ -45,11 +45,11 @@ public class information implements Serializable {
     //排量
     private Double displacement;
     //年检到期
-    private Date annualtime;
+    private String annualtime;
     //上牌日期
-    private Date regTime;
+    private String regTime;
     //保险到期
-    private Date insuranceTime;
+    private String insuranceTime;
 
     public static long getSerialVersionUID() {
         return serialVersionUID;
@@ -143,27 +143,27 @@ public class information implements Serializable {
         this.displacement = displacement;
     }
 
-    public Date getAnnualtime() {
+    public String getAnnualtime() {
         return annualtime;
     }
 
-    public void setAnnualtime(Date annualtime) {
+    public void setAnnualtime(String annualtime) {
         this.annualtime = annualtime;
     }
 
-    public Date getRegTime() {
+    public String getRegTime() {
         return regTime;
     }
 
-    public void setRegTime(Date regTime) {
+    public void setRegTime(String regTime) {
         this.regTime = regTime;
     }
 
-    public Date getInsuranceTime() {
+    public String getInsuranceTime() {
         return insuranceTime;
     }
 
-    public void setInsuranceTime(Date insuranceTime) {
+    public void setInsuranceTime(String insuranceTime) {
         this.insuranceTime = insuranceTime;
     }
 
@@ -181,9 +181,9 @@ public class information implements Serializable {
                 ", color='" + color + '\'' +
                 ", imports='" + imports + '\'' +
                 ", displacement=" + displacement +
-                ", annualtime=" + annualtime +
-                ", regTime=" + regTime +
-                ", insuranceTime=" + insuranceTime +
+                ", annualtime='" + annualtime + '\'' +
+                ", regTime='" + regTime + '\'' +
+                ", insuranceTime='" + insuranceTime + '\'' +
                 '}';
     }
 }
