@@ -15,5 +15,4 @@ public class SpringcloudFeignApplication {
     public static void main(String[] args) {
         SpringApplication.run(SpringcloudFeignApplication.class, args);
     }
-
 }

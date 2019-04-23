@@ -6,4 +6,8 @@
     <select id="queryUserList" resultType="com.jk.model.Car">
         select * from t_car
     </select>
+
+    <insert id="adduser" parameterType="com.jk.model.UserBean">
+    insert into t_user(userphone,password,role,username,mailbox,sex) values(#{userphone},#{password},1,#{username},#{mailbox},#{sex})
+    </insert>
 </mapper>

@@ -33,4 +33,7 @@ public interface UserService {
 
     @GetMapping("/user/login")
     UserBean phoneVerification(@RequestParam("userphone") String userphone);
+
+    @PostMapping("adduser")
+    void adduser(@RequestBody UserBean userBean);
 }

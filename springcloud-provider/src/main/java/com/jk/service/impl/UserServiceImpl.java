@@ -32,4 +32,11 @@ public class UserServiceImpl  {
     public UserBean phoneVerification(@RequestParam("userphone") String userphone){
         return carMapper.phoneVerification(userphone);
     }
+
+    @PostMapping("adduser")
+    @ResponseBody
+    public void adduser(@RequestBody UserBean userBean){
+        carMapper.adduser(userBean);
+    };
+
 }

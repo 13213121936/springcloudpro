@@ -21,25 +21,28 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class PageController {
 
-    @RequestMapping("toAddCar")
-    public String toAddCar(){
-        return "addCar";
-    }
 
+
+    //跳转展示页面
     @RequestMapping("list")
     public String list(){
         return "list";
     }
+    //跳转首页
     @RequestMapping("index")
     public String index(){
         return "index";
     }
-    @RequestMapping("toinfor")
-    public String toinfor(Integer id){
-        return "aa";
-    }
+
+    //登录页面
     @RequestMapping("login")
     public String login(){
         return "login";
+    }
+
+    //注册页面
+    @RequestMapping("toAdd")
+    public String toAdd(){
+        return "zc";
     }
 }

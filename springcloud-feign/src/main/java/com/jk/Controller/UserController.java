@@ -157,11 +157,11 @@ public class UserController {
         }
         double random = Math.random();
         int Verification = (int)((random*9+1)*100000);
-        HttpSession session = request.getSession();
-        session.setAttribute("Verification", Verification);
-        /*redisTemplate.opsForValue().set(ConstantConf.STRINGDXYZ+"Verification", Verification, ConstantConf.INTEGERDXYZTIME, TimeUnit.SECONDS);
+       /* HttpSession session = request.getSession();
+        session.setAttribute("Verification", Verification);*/
+        redisTemplate.opsForValue().set("Verification", Verification, ConstantConf.INTEGERDXYZTIME, TimeUnit.SECONDS);
         hashMap.put("param", Verification);
-        String post = HttpClientUtil.post(ConstantConf.STRINGR, hashMap);*/
+        String post = HttpClientUtil.post(ConstantConf.STRINGR, hashMap);
         String  va = "";
         va+=Verification;
         System.out.println(va);
@@ -176,17 +176,18 @@ public class UserController {
     public Integer phoneVerification(String userphone,String Verification ,HttpServletRequest request) {
         System.out.println(userphone);
         System.out.println(Verification);
-        HttpSession session = request.getSession();
-        String attribute =  session.getAttribute("Verification").toString();
-        System.out.println(attribute);
+        String   yanzhengma= (String) redisTemplate.opsForValue().get("Verification");
+
         //String attribute = redisTemplate.opsForValue().get(ConstantConf.STRINGDXYZ+"Verification").toString();
-        if (!attribute.equals(Verification)) {
+        if (!Verification.equals(yanzhengma)) {
             return 2;//验证码不正确
         }
         UserBean userBean = userService.phoneVerification(userphone);
         if (userBean == null) {
             return 1;//此手机号为空
         }else{
+            HttpSession session = request.getSession();
+
             session.setAttribute(session.getId(),userBean);
             return 3;//登录成功
         }

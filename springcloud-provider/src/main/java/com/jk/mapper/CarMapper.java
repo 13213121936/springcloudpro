@@ -13,6 +13,7 @@ import com.jk.model.Car;
 import com.jk.model.UserBean;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
 
@@ -31,6 +32,9 @@ public interface CarMapper {
 
 
     List<Car> queryUserList();
-    @Select("select * from t_user")
+    @Select("select * from t_user where userphone=#{value}")
     UserBean phoneVerification(@RequestParam("userphone")String userphone);
+
+
+    void adduser(UserBean userBean);
 }
