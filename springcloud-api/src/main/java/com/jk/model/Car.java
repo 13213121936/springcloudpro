@@ -27,10 +27,8 @@ public class Car implements Serializable {
     //品牌
     private String cartype;
     //原价
-    private Double price;
-    //现价
-    private Double currentprice;
-
+    private Integer price;
+    //汽车图片
     private String img;
     //详细图片
     private Integer infoid;
@@ -38,8 +36,10 @@ public class Car implements Serializable {
     private Integer audState ;
     //交易状态
     private Integer state ;
-    //地区
-    private String city ;
+
+
+    //现价
+    private Integer currentprice;
 
     public Integer getCarid() {
         return carid;
@@ -65,20 +65,12 @@ public class Car implements Serializable {
         this.cartype = cartype;
     }
 
-    public Double getPrice() {
+    public Integer getPrice() {
         return price;
     }
 
-    public void setPrice(Double price) {
+    public void setPrice(Integer price) {
         this.price = price;
-    }
-
-    public Double getCurrentprice() {
-        return currentprice;
-    }
-
-    public void setCurrentprice(Double currentprice) {
-        this.currentprice = currentprice;
     }
 
     public String getImg() {
@@ -113,27 +105,11 @@ public class Car implements Serializable {
         this.state = state;
     }
 
-    public String getCity() {
-        return city;
+    public Integer getCurrentprice() {
+        return currentprice;
     }
 
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    @Override
-    public String toString() {
-        return "Car{" +
-                "carid=" + carid +
-                ", carname='" + carname + '\'' +
-                ", cartype='" + cartype + '\'' +
-                ", price=" + price +
-                ", currentprice=" + currentprice +
-                ", img='" + img + '\'' +
-                ", infoid=" + infoid +
-                ", audState=" + audState +
-                ", state=" + state +
-                ", city='" + city + '\'' +
-                '}';
+    public void setCurrentprice(Integer currentprice) {
+        this.currentprice = currentprice;
     }
 }

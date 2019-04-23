@@ -27,6 +27,17 @@ import java.util.List;
 public class CarServiceImpl {
     @Autowired
     private CarMapperZX carMapperZX;
+
+
+
+    //查询
+    @GetMapping("/queryCarList")
+    @ResponseBody
+    public List<Carsc> queryUserList(){
+        return carMapperZX.queryUserList();
+    };
+
+
     //查询汽车实体
     @GetMapping("/carzx/queryInformation")
     @ResponseBody

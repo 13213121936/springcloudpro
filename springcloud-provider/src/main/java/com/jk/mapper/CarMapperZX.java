@@ -27,6 +27,10 @@ import java.util.List;
  */
 public interface CarMapperZX {
 
+
+    @Select("  select * from t_car ")
+    List<Carsc> queryUserList();
+
     //查询汽车实体
     @Select("select * from t_car where carid=#{value}")
     Car queryCarList(@RequestParam("id")Integer id);

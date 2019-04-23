@@ -12,6 +12,8 @@ package com.jk.Controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.thymeleaf.model.IModel;
 
 /**
  * 〈一句话功能简述〉<br> 
@@ -27,8 +29,12 @@ public class PageController {
         return "addCar";
     }
 
-    @RequestMapping("toMain")
-    public String toMain(){
+    @RequestMapping("list")
+    public String list(){
+        return "list";
+    }
+    @RequestMapping("index")
+    public String index(){
         return "index";
     }
     @RequestMapping("tomaiche")
@@ -37,17 +43,10 @@ public class PageController {
     }
 
     @RequestMapping("toinfor")
-    public String toinfor(Model model){
-        int id=333333;
+    public String toinfor(@RequestParam("id") Integer  id, Model model){
         model.addAttribute("a",id);
         return "infor";
     }
-
-
-
-
-
-
 
 
 }
