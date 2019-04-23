@@ -38,4 +38,8 @@ public class PageController {
     public String toinfor(Integer id){
         return "aa";
     }
+    @RequestMapping("login")
+    public String login(){
+        return "login";
+    }
 }

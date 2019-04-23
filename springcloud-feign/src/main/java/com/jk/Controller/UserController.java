@@ -10,22 +10,29 @@
 package com.jk.Controller;
 
 import com.jk.model.Car;
+import com.jk.model.ConstantConf;
+import com.jk.model.UserBean;
 import com.jk.service.UserService;
+import com.jk.util.HttpClientUtil;
+import com.jk.util.Md5Util;
 import org.apache.solr.client.solrj.SolrClient;
 import org.apache.solr.client.solrj.SolrQuery;
 import org.apache.solr.client.solrj.SolrServerException;
+
 import org.apache.solr.client.solrj.response.QueryResponse;
 import org.apache.solr.common.SolrDocument;
 import org.apache.solr.common.SolrDocumentList;
-import org.apache.solr.common.SolrInputDocument;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.web.bind.annotation.*;
 
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.concurrent.TimeUnit;
 
 /**
  * 〈一句话功能简述〉<br>
@@ -40,6 +47,9 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private RedisTemplate redisTemplate;
 
     @Autowired
     private SolrClient client;
@@ -126,4 +136,56 @@ public class UserController {
         return mSolr;
     }
 
+    @RequestMapping("duanxinyanzheng")
+    @ResponseBody
+    public String duanxinyanzheng(String userphone, HttpServletRequest request) {
+
+        HashMap<String, Object> hashMap = new HashMap<>();
+        hashMap.put("accountSid", ConstantConf.STRINGW);
+        hashMap.put("to", userphone);
+        String format = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
+        hashMap.put("timestamp", format);
+        String md532 = Md5Util.getMd532(ConstantConf.STRINGW+ConstantConf.STRINGE+format);
+        hashMap.put("sig", md532);
+        hashMap.put("templateid", ConstantConf.STRINGT);
+        Object object = redisTemplate.opsForValue().get(ConstantConf.STRINGDXYZ+"Verification");
+        if (object!=null) {
+            return "sss";
+        }
+        double random = Math.random();
+        int Verification = (int)((random*9+1)*100000);
+        HttpSession session = request.getSession();
+        session.setAttribute("Verification", Verification);
+        /*redisTemplate.opsForValue().set(ConstantConf.STRINGDXYZ+"Verification", Verification, ConstantConf.INTEGERDXYZTIME, TimeUnit.SECONDS);
+        hashMap.put("param", Verification);
+        String post = HttpClientUtil.post(ConstantConf.STRINGR, hashMap);*/
+        String  va = "";
+        va+=Verification;
+        System.out.println(va);
+        return va;
+    }
+
+
+    @Autowired
+    private UserService userservice;
+    //手机验证码
+    @RequestMapping("phoneVerification")
+    @ResponseBody
+    public Integer phoneVerification(String userphone,String Verification ,HttpServletRequest request) {
+        System.out.println(userphone);
+        System.out.println(Verification);
+        HttpSession session = request.getSession();
+        String attribute =  session.getAttribute("Verification").toString();
+        System.out.println(attribute);
+        //String attribute = redisTemplate.opsForValue().get(ConstantConf.STRINGDXYZ+"Verification").toString();
+        if (!attribute.equals(Verification)) {
+            return 2;//验证码不正确
+        }
+        UserBean userBean = userservice.phoneVerification(userphone);
+        if (userBean == null) {
+            return 1;//此手机号为空
+        }else{
+            return 3;//登录成功
+        }
+    }
 }

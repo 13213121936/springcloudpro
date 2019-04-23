@@ -10,7 +10,10 @@
 package com.jk.mapper;
 
 import com.jk.model.Car;
+import com.jk.model.UserBean;
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
+import org.springframework.web.bind.annotation.RequestParam;
 
 
 import java.util.List;
@@ -28,4 +31,6 @@ public interface CarMapper {
 
 
     List<Car> queryUserList();
+    @Select("select * from t_user")
+    UserBean phoneVerification(@RequestParam("userphone")String userphone);
 }

@@ -9,6 +9,7 @@ package com.jk.service;
 
 import com.jk.model.Car;
 
+import com.jk.model.UserBean;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 
@@ -29,4 +30,7 @@ public interface UserService {
 
     @GetMapping("/queryCarList")
     List<Car> queryUserList();
+
+    @GetMapping("/user/login")
+    UserBean phoneVerification(@RequestParam("userphone") String userphone);
 }
