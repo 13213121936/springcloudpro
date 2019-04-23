@@ -152,6 +152,7 @@
                 <div class="row">
                     <div class="tel-box"> 电话咨询 :<em>400-877-9388</em> </div>
                     <div class="order_button"> <span class="wanttoprice orderbut" id="sendMESS">预约看车</span> </div>
+                    <div class="order_button"><a href="javascript:shoucang();" class="shouchang" id="shouchang">收藏</a></div>
                 </div>
 
                 <!--优势-->
@@ -1096,6 +1097,19 @@ $("#sendprice").live("click",function(){
             }
         })
         $("#popBoxprice").fadeOut();
+    }
+    function shoucang() {
+        var carid='[[${a}]]';
+        $.ajax({
+            url:"carzx/addShouCang",
+            type:"post",
+            data:{
+                carid:carid
+            },
+            success:function(data){
+                alert(data)
+            }
+        })
     }
 </script>
 </body>

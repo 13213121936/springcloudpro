@@ -10,6 +10,7 @@
 package com.jk.mapper;
 
 import com.jk.model.*;
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
@@ -51,4 +52,22 @@ public interface CarMapperZX {
     void addPrice(@RequestBody CarBuy carBuy);
     @Insert("INSERT INTO t_seller (phone,status) VALUES(#{value},0)")
     void addSeller(@RequestParam("id")String userphone);
+
+    @Insert("INSERT INTO t_collect (carid,userid) VALUES(#{carid},#{userid})")
+    void addShouCang(@Param("carid")Integer carid,@Param("userid") Integer userid);
+
+    @Select("select count(1) from t_collect WHERE carid=#{carid} and userid=#{userid}")
+    int qeuryShouCang(@Param("carid")Integer carid,@Param("userid") Integer userid);
+
+    @Select("select * from t_user where id=#{value}")
+    User queryUserBean(@RequestParam("userid")Integer userid);
+
+    @Select("SELECT coll.id as id,c.carname,c.img,c.price,i.displacement,i.regTime,i.travel from t_user u LEFT JOIN t_collect coll on u.id=coll.userid\n" +
+            "LEFT JOIN t_car c ON coll.carid=c.carid \n" +
+            "LEFT JOIN t_information i on c.carid=i.carid\n" +
+            "where u.id=#{value}")
+    List<Collect> queryCarBean(@RequestParam("userid") Integer userid);
+
+    @Delete("DELETE from t_collect where id=#{value}")
+    void deleteColl(@RequestParam(value = "id")Integer id);
 }

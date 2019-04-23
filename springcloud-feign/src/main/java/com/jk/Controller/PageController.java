@@ -41,6 +41,10 @@ public class PageController {
     public String tomaiche(){
         return "wymc";
     }
+    @RequestMapping("towdxq")
+    public String towdxq(){
+        return "wdxq";
+    }
 
     @RequestMapping("toinfor")
     public String toinfor(@RequestParam("id") Integer  id, Model model){

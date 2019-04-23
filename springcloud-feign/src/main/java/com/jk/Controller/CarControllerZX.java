@@ -112,6 +112,59 @@ public class CarControllerZX {
         carServiceZX.addSeller(userphone);
         return "提交成功";
     }
+    //收藏
+    @RequestMapping("/carzx/addShouCang")
+    @ResponseBody
+    public String addShouCang(@RequestParam("carid") Integer carid){
+        Integer userid=2;
+        int count=carServiceZX.qeuryShouCang(carid,userid);
+        if (count>0){
+            return "这款车已经在收藏页面！";
+        }
+        carServiceZX.addShouCang(carid,userid);
+        return "收藏成功";
+    }
+    //收藏页面查询用户
+    @GetMapping("/carzx/queryUserBean")
+    @ResponseBody
+    public User queryUserBean(){
+        Integer userid=1;
+        User user=carServiceZX.queryUserBean(userid);
+        String str=user.getUsername();
+        user.setUsername(str.substring(0,1));
+        System.out.println(str.substring(0,1));
+        System.out.println(user);
+        return user;
+    }
+    //收藏页面查询汽车
+    @GetMapping("/carzx/queryCarBean")
+    @ResponseBody
+    public  List<Collect> queryCarBean(){
+        Integer userid=1;
+        List<Collect> list=carServiceZX.queryCarBean(userid);
+        return list;
+    }
+    @GetMapping("/carzx/deleteColl")
+    @ResponseBody
+    public Boolean deleteColl(@RequestParam(value = "id") Integer id){
+        System.out.println(id);
+
+        carServiceZX.deleteColl(id);
+        return true;
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
 
 //发短信
     @RequestMapping("duanxinyanzheng")

@@ -51,7 +51,17 @@ public interface UserService {
     @PostMapping("/carzx/addSeller")
     void addSeller(@RequestParam("userphone")String userphone);
 
+    @PostMapping("/carzx/addShouCang")
+    void addShouCang(@RequestParam("carid")Integer carid, @RequestParam("userid")Integer userid);
 
+    @GetMapping("/qeuryShouCang")
+    int qeuryShouCang(@RequestParam("carid")Integer carid, @RequestParam("userid")Integer userid);
 
+    @GetMapping("/carzx/queryUserBean")
+    User queryUserBean(@RequestParam("userid")Integer userid);
 
+    @GetMapping("/carzx/queryCarBean")
+    List<Collect> queryCarBean(@RequestParam("userid")Integer userid);
+    @GetMapping("/carzx/deleteColl")
+    void deleteColl(@RequestParam(value = "id") Integer id);
 }

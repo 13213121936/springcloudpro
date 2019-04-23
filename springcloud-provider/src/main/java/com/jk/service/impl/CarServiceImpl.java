@@ -42,7 +42,6 @@ public class CarServiceImpl {
     @GetMapping("/carzx/queryInformation")
     @ResponseBody
     public information queryInformation(@RequestParam("id")Integer id){
-        System.out.println(11);
         information infor= carMapperZX.queryInformation(id);
         System.out.println(infor);
         return infor;
@@ -51,16 +50,13 @@ public class CarServiceImpl {
     @GetMapping("/carzx/queryCarList")
     @ResponseBody
     public Car queryCarList(@RequestParam("id")Integer id){
-        System.out.println(11);
         Car car= carMapperZX.queryCarList(id);
-        System.out.println(car);
         return car;
     }
     //查询 图片详细
     @GetMapping("/carzx/queryCarInforImg")
     @ResponseBody
     public List<CarInFor> queryCarInforImg(@RequestParam("id")Integer id){
-        System.out.println(11);
         List<CarInFor> list= carMapperZX.queryCarInforImg(id);
         System.out.println(list);
         return list;
@@ -69,24 +65,51 @@ public class CarServiceImpl {
     @GetMapping("/carzx/queryCarTrimImg")
     @ResponseBody
     public List<CarInFor> queryCarTrimImg(@RequestParam("id")Integer id){
-        System.out.println(11);
         List<CarInFor> list= carMapperZX.queryCarTrimImg(id);
         System.out.println(list);
         return list;
     }
     @PostMapping("/carzx/addPhone")
     public void addPhone(@RequestParam("phone") String phone,@RequestParam("carid") Integer carid){
-       System.out.println(phone);
         carMapperZX.addPhone(phone,carid);
     }
     @PostMapping("/carzx/addPrice")
     public void addPrice(@RequestBody CarBuy carBuy){
-        System.out.println(carBuy);
         carMapperZX.addPrice(carBuy);
     }
     @PostMapping("/carzx/addSeller")
     public void addSeller(@RequestParam("userphone") String userphone){
-        System.out.println(userphone);
         carMapperZX.addSeller(userphone);
+    }
+    @PostMapping("/carzx/addShouCang")
+    public void addShouCang(@RequestParam("carid") Integer carid,@RequestParam("userid") Integer userid){
+        System.out.println(carid);
+        carMapperZX.addShouCang(carid,userid);
+    }
+    //收藏
+    @GetMapping("/qeuryShouCang")
+    @ResponseBody
+    public int qeuryShouCang(@RequestParam("carid") Integer carid,@RequestParam("userid") Integer userid){
+        System.out.println(carid);
+        int count=carMapperZX.qeuryShouCang(carid,userid);
+        System.out.println(count);
+        return count;
+    }
+    @GetMapping("/carzx/queryUserBean")
+    @ResponseBody
+    public User queryUserBean(@RequestParam("userid")Integer userid){
+       User user= carMapperZX.queryUserBean(userid);
+        return user;
+    }
+    @GetMapping("/carzx/queryCarBean")
+    @ResponseBody
+    public List<Collect> queryCarBean(@RequestParam("userid")Integer userid){
+        List<Collect> list=carMapperZX.queryCarBean(userid);
+        System.out.println(list);
+        return list;
+    }
+    @GetMapping("/carzx/deleteColl")
+    public void deleteColl(@RequestParam(value = "id") Integer id){
+        carMapperZX.deleteColl(id);
     }
 }
