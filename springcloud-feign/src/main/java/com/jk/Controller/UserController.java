@@ -53,13 +53,13 @@ public class UserController {
 
     @Autowired
     private SolrClient client;
-    //查询
+
+    //查询首页
     @GetMapping("/queryCarList")
     public List<Car> queryUserList(){
         return userService.queryUserList();
     }
-
-
+    //搜索
     @GetMapping("/search")
     public Map<String,Object> userlist(Car car, Integer page, Integer rows) throws IOException, SolrServerException {
         //因为使用easyui返回数据
@@ -136,10 +136,13 @@ public class UserController {
         return mSolr;
     }
 
+
+
+
+    //获取手机验证码
     @RequestMapping("duanxinyanzheng")
     @ResponseBody
     public String duanxinyanzheng(String userphone, HttpServletRequest request) {
-
         HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put("accountSid", ConstantConf.STRINGW);
         hashMap.put("to", userphone);
@@ -166,9 +169,8 @@ public class UserController {
     }
 
 
-    @Autowired
-    private UserService userservice;
-    //手机验证码
+
+    //手机验证码登录
     @RequestMapping("phoneVerification")
     @ResponseBody
     public Integer phoneVerification(String userphone,String Verification ,HttpServletRequest request) {
@@ -181,11 +183,26 @@ public class UserController {
         if (!attribute.equals(Verification)) {
             return 2;//验证码不正确
         }
-        UserBean userBean = userservice.phoneVerification(userphone);
+        UserBean userBean = userService.phoneVerification(userphone);
         if (userBean == null) {
             return 1;//此手机号为空
         }else{
+            session.setAttribute(session.getId(),userBean);
             return 3;//登录成功
+        }
+    }
+
+
+    //注册
+    @PostMapping("adduser")
+    public Integer adduser(UserBean userBean){
+        String userphone = userBean.getUserphone();
+        UserBean a = userService.phoneVerification(userphone);
+        if(a==null){
+            userService.adduser(userBean);
+            return 1;
+        }else{
+            return 2;
         }
     }
 }
