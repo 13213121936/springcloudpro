@@ -8,10 +8,12 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/springcloud-eurka/pom.xml" />
-        <option value="$PROJECT_DIR$/springcloud-provider/pom.xml" />
-        <option value="$PROJECT_DIR$/springcloud-feign/pom.xml" />
       </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/springcloud-api/pom.xml" />
+      </set>
     </option>
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
