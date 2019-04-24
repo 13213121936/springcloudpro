@@ -33,7 +33,7 @@ public interface CarMapperZX {
     List<Carsc> queryUserList();
 
     //查询汽车实体
-    @Select("select * from t_car where carid=#{value}")
+    @Select(" select * from t_car where carid=#{value} ")
     Car queryCarList(@RequestParam("id")Integer id);
     //查询汽车详细信息
     @Select("select * from t_Information where carid=#{value}")
@@ -71,8 +71,9 @@ public interface CarMapperZX {
     @Delete("DELETE from t_collect where id=#{value}")
     void deleteColl(@RequestParam(value = "id")Integer id);
 
+    @Select(" select * from t_user  t where userphone =#{userphone} ")
+    User userquery(@RequestParam("userphone") String userphone);
 
-   /* @Select("  select count(1) from t_user  t where  t.userphone=#{value} ")*/
-    int conutPhone(@RequestParam(value = "userphone") String userphone);
-
+    @Insert(" INSERT into t_user(userphone) VALUES(#{userphone}) ")
+    void adduserzhu(@RequestParam("userphone") String userphone);
 }

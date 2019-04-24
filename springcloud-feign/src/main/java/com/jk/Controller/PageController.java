@@ -49,9 +49,28 @@ public class PageController {
     public String tohyzx(){
         return "hyzx";
     }
+    @RequestMapping("to404")
+    public String to404(){
+        return "404";
+    }
+    @RequestMapping("tomeiti")
+    public String tomeiti(){
+        return "medialist";
+    }
+
+    @RequestMapping("towzgg")
+    public String towzgg(){
+        return "newlist";
+    }
+
+    @RequestMapping("togywm")
+    public String togywm(){
+        return "about";
+    }
     @RequestMapping("toinfor")
     public String toinfor(@RequestParam("id") Integer  id, Model model){
         model.addAttribute("a",id);
+        System.out.println(id+"aaaaaaaaaaaaaaaaaaaaaaa");
         return "infor";
     }
     @RequestMapping("tologin")

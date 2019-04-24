@@ -26,15 +26,12 @@ public class User implements Serializable{
     private Integer id;
     private String  userphone;//手机号
     private String  password;//密码
-    private String  role;//角色
+    private Integer  role;//角色
     private Double  balance;//余额
     private String  username;//姓名
     private String  mailbox;//邮箱
     private String  sex;//性别
 
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
-    }
 
     public Integer getId() {
         return id;
@@ -60,11 +57,11 @@ public class User implements Serializable{
         this.password = password;
     }
 
-    public String getRole() {
+    public Integer getRole() {
         return role;
     }
 
-    public void setRole(String role) {
+    public void setRole(Integer role) {
         this.role = role;
     }
 
@@ -98,19 +95,5 @@ public class User implements Serializable{
 
     public void setSex(String sex) {
         this.sex = sex;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", userphone='" + userphone + '\'' +
-                ", password='" + password + '\'' +
-                ", role='" + role + '\'' +
-                ", balance=" + balance +
-                ", username='" + username + '\'' +
-                ", mailbox='" + mailbox + '\'' +
-                ", sex='" + sex + '\'' +
-                '}';
     }
 }

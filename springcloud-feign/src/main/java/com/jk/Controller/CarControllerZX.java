@@ -9,6 +9,8 @@
  */
 package com.jk.Controller;
 
+
+
 import com.jk.model.*;
 
 import com.jk.service.UserService;
@@ -51,7 +53,9 @@ public class CarControllerZX {
     @GetMapping("/carzx/queryCarList")
     @ResponseBody
     public Car queryCarList(@RequestParam("id") Integer  id) {
+        System.out.println("wwwwwwwwwwwwwww"+id);
         Car car = carServiceZX.queryCarList(id);
+        System.out.println(car);
         return car;
     }
 
@@ -59,7 +63,9 @@ public class CarControllerZX {
     @GetMapping("/carzx/queryInformation")
     @ResponseBody
     public information queryInformation(@RequestParam("id") Integer  id) {
+
         information infor = carServiceZX.queryInformation(id);
+
         return infor;
     }
 
@@ -123,8 +129,10 @@ public class CarControllerZX {
     //收藏
     @RequestMapping("/carzx/addShouCang")
     @ResponseBody
-    public String addShouCang(@RequestParam("carid") Integer carid){
-        Integer userid=2;
+    public String addShouCang(@RequestParam("carid") Integer carid,HttpSession session){
+
+       User user= (User) session.getAttribute("user");
+        Integer userid=  user.getId();
         int count=carServiceZX.qeuryShouCang(carid,userid);
         if (count>0){
             return "这款车已经在收藏页面！";
@@ -135,8 +143,9 @@ public class CarControllerZX {
     //收藏页面查询用户
     @GetMapping("/carzx/queryUserBean")
     @ResponseBody
-    public User queryUserBean(){
-        Integer userid=1;
+    public User queryUserBean(HttpSession session){
+        User user1= (User) session.getAttribute("user");
+        Integer userid=  user1.getId();
         User user=carServiceZX.queryUserBean(userid);
         String str=user.getUsername();
         user.setUsername(str.substring(0,1));
@@ -147,8 +156,9 @@ public class CarControllerZX {
     //收藏页面查询汽车
     @GetMapping("/carzx/queryCarBean")
     @ResponseBody
-    public  List<Collect> queryCarBean(){
-        Integer userid=1;
+    public  List<Collect> queryCarBean(HttpSession session){
+        User user1= (User) session.getAttribute("user");
+        Integer userid=  user1.getId();
         List<Collect> list=carServiceZX.queryCarBean(userid);
         return list;
     }
@@ -211,21 +221,50 @@ public class CarControllerZX {
         return "短信发送成功";
     }
     //登陆
-    @RequestMapping("phoneVerification")
+    @GetMapping("phoneVerification")
     @ResponseBody
-    public   String   phoneVerification(String userphone,String yanzhengma) {
-       // String attribute = redisTemplate.opsForValue().get(ConstantConf.STRINGDXYZ + "Verification").toString();
-      //  if (!attribute.equals(yanzhengma)) {
-      //      return "验证码错误请核实";
-      //  }
-        int count = carServiceZX.conutPhone(userphone);
-     System.out.println(count);
-    return null;
+    public   String   phoneVerification(String userphone,String yanzhengma,HttpServletRequest request) {
+      String attribute = redisTemplate.opsForValue().get(ConstantConf.STRINGDXYZ + "Verification").toString();
+        String aa = "";
+        if(attribute==null){
+            aa="验证码失效,请重新获取";
+        }
 
+        if(userphone==null){
+            aa="请输入正确手机号";
+        }
+        User user = carServiceZX.userquery(userphone);
+        if (!attribute.equals(yanzhengma)) {
+            aa = "验证码错误";
+        }
+
+        if (user == null) {
+           aa="账号不在";
+        }
+        if (attribute.equals(yanzhengma)&&user!=null) {
+            HttpSession session = request.getSession();
+            session.setAttribute("user", user);
+            aa = "登陆成功";
+        }
+        return aa;
     }
 
+    //注册
+    @RequestMapping("addzhuce")
+    @ResponseBody
+    public  String  addzhuce(String userphone,String yanzhengma){
+        String aa = "";
+        String attribute = "11";
+        if (!attribute.equals(yanzhengma)) {
+            aa = "验证码错误";
+        }
+        //User user = carServiceZX.userquery(userphone);
 
+            carServiceZX.adduserzhu(userphone);
+            aa="注册成功";
 
+        return aa;
+    }
 
 
 

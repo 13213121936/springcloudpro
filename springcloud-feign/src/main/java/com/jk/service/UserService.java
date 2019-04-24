@@ -7,6 +7,7 @@
  */
 package com.jk.service;
 
+
 import com.jk.model.*;
 
 import org.springframework.cloud.openfeign.FeignClient;
@@ -65,6 +66,10 @@ public interface UserService {
     @GetMapping("/carzx/deleteColl")
     void deleteColl(@RequestParam(value = "id") Integer id);
 
-    @RequestMapping("phoneVerification")
-    int conutPhone(String userphone);
+    @GetMapping("phoneVerification")
+    User userquery(@RequestParam("userphone") String userphone);
+
+    @PostMapping("adduserzhu")
+    void adduserzhu(@RequestParam("userphone") String userphone);
+
 }

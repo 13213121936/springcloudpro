@@ -114,11 +114,19 @@ public class CarServiceImpl {
     }
 
 
-
     @RequestMapping("phoneVerification")
     @ResponseBody
-    public   int conutPhone(String userphone){
-        return  carMapperZX.conutPhone(userphone);
+     public   User userquery(@RequestParam("userphone") String userphone){
+        User user =carMapperZX.userquery(userphone);
+        return user;
     }
+
+    @PostMapping("adduserzhu")
+    @ResponseBody
+    public void adduserzhu(@RequestParam("userphone") String userphone){
+        carMapperZX.adduserzhu(userphone);
+    }
+
+
 
 }
