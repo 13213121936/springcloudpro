@@ -12,6 +12,7 @@ package com.jk.service.impl;
 import com.jk.mapper.CarMapperZX;
 import com.jk.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -27,6 +28,11 @@ import java.util.List;
 public class CarServiceImpl {
     @Autowired
     private CarMapperZX carMapperZX;
+
+    @Autowired
+    private MongoTemplate mongoTemplate;
+
+
     //查询汽车实体
     @GetMapping("/carzx/queryInformation")
     @ResponseBody
