@@ -64,4 +64,7 @@ public interface UserService {
     List<Collect> queryCarBean(@RequestParam("userid")Integer userid);
     @GetMapping("/carzx/deleteColl")
     void deleteColl(@RequestParam(value = "id") Integer id);
+
+    @RequestMapping("phoneVerification")
+    int conutPhone(String userphone);
 }

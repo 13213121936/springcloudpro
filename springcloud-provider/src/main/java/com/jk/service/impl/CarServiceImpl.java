@@ -112,4 +112,13 @@ public class CarServiceImpl {
     public void deleteColl(@RequestParam(value = "id") Integer id){
         carMapperZX.deleteColl(id);
     }
+
+
+
+    @RequestMapping("phoneVerification")
+    @ResponseBody
+    public   int conutPhone(String userphone){
+        return  carMapperZX.conutPhone(userphone);
+    }
+
 }

@@ -70,4 +70,9 @@ public interface CarMapperZX {
 
     @Delete("DELETE from t_collect where id=#{value}")
     void deleteColl(@RequestParam(value = "id")Integer id);
+
+
+   /* @Select("  select count(1) from t_user  t where  t.userphone=#{value} ")*/
+    int conutPhone(@RequestParam(value = "userphone") String userphone);
+
 }

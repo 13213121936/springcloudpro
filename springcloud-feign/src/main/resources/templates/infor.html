@@ -65,14 +65,14 @@
 <body>
 <div class="egc-top">
     <div class="nav-cent">
-        <div class="top-r"> <a href="#" id="b-regist">注册</a>|<a href="#" id="b-login" class="b-login">登陆</a> </div>
+        <div class="top-r"> <a href="tohyzx" id="b-regist">个人中心</a> </div>
         <div class="top-l">全国统一客服热线：400-877-9288</div>
         <div class="clear_fix"></div>
     </div>
 </div>
 <div class="navigation">
     <div class="nav-cent">
-        <div class="logo"><a href="index.html"><img src="images/logo.png" width="240" /></a></div>
+        <div class="logo"><a href="index"><img src="images/logo.png" width="240" /></a></div>
         <div class="city"> <span id="DY_site_name" class="red city-name Left">合肥</span>
             <div id="JS_hide_city_menu_11" class="city-select cut_handdler Left"> <a href="javascript:void(0);" class="common-bg selector">切换城市</a>
                 <div id="JS_header_city_bar_box" class="hide_city_group">
@@ -106,13 +106,13 @@
 <ul class="navmenu">
     <li class="active"><a href="index">首页</a><span></span></li>
     <li><a href="list">我要买车</a><span></span></li>
-    <li><a href="wymc">我要卖车</a><span></span></li>
+    <li><a href="tomaiche">我要卖车</a><span></span></li>
     <li><a href="#">阳光联盟</a><span></span></li>
     <li><a href="#">我要加盟</a><span></span></li>
 </ul>
 <div class="clear_fix"></div>
 <!--所在位置-->
-<div class="crumbp"> <a href="http://localhost:8084/toMain">首页</a> <em>&gt;</em> <span>个人二手车</span></div>
+<div class="crumbp"> <a href="index">首页</a> <em>&gt;</em> <span>个人二手车</span></div>
 <div class="mainbox">
     <!--车子概况头部-->
     <div class="car-top">
@@ -1009,7 +1009,6 @@ $("#sendprice").live("click",function(){
     }
     function sendtosend1(){
         var ss11='[[${a}]]';
-        alert(ss11);
         var aa=$("#shoujihao").val();
         if(aa==null||aa==""){
             alert("没有手机号，不能提交哦！");
@@ -1081,7 +1080,9 @@ $("#sendprice").live("click",function(){
         var yanzhengma=$("#yanzhengma").val();
         var qiwangjia=$("#qiwangjia").val();
         var yuanprice=$("#yuanprice").html();
-        alert(yuanprice);
+        if(yanzhengma==null){
+            alert("请输入验证码")
+        }
         $.ajax({
             url:"carzx/addPrice",
             type:"post",

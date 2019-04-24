@@ -90,7 +90,15 @@ public class CarControllerZX {
     @ResponseBody
     public String addPrice( CarBuy carBuy,String yanzhengma) {
        String attribute = redisTemplate.opsForValue().get(ConstantConf.STRINGDXYZ+"Verification").toString();
-        System.out.println(attribute);
+       if(attribute.equals("")){
+           return "请输入验证码";
+       }
+
+        Double  jiager=carBuy.getPrice();
+        Double  jiage2= jiager*0.8;
+        if(carBuy.getPsyPrice()<jiage2){
+            return "不要太贪哦,换个价格试试";
+        }
         if (!attribute.equals(yanzhengma)) {
             return "验证码不正确";//验证码不正确
         }
@@ -173,7 +181,14 @@ public class CarControllerZX {
 
         HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put("accountSid", ConstantConf.STRINGW);
+        if(userphone.equals("")){
+            return "手机号不能为空";
+        }
+        if(userphone.length()!=11){
+            return "请输入正确的手机号";
+        }
         hashMap.put("to", userphone);
+
         String format = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
         hashMap.put("timestamp", format);
         String md532 = Md5Util.getMd532(ConstantConf.STRINGW + ConstantConf.STRINGE + format);
@@ -195,4 +210,23 @@ public class CarControllerZX {
         System.out.println(va);
         return "短信发送成功";
     }
+    //登陆
+    @RequestMapping("phoneVerification")
+    @ResponseBody
+    public   String   phoneVerification(String userphone,String yanzhengma) {
+       // String attribute = redisTemplate.opsForValue().get(ConstantConf.STRINGDXYZ + "Verification").toString();
+      //  if (!attribute.equals(yanzhengma)) {
+      //      return "验证码错误请核实";
+      //  }
+        int count = carServiceZX.conutPhone(userphone);
+     System.out.println(count);
+    return null;
+
+    }
+
+
+
+
+
+
 }

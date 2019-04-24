@@ -45,11 +45,19 @@ public class PageController {
     public String towdxq(){
         return "wdxq";
     }
-
+    @RequestMapping("tohyzx")
+    public String tohyzx(){
+        return "hyzx";
+    }
     @RequestMapping("toinfor")
     public String toinfor(@RequestParam("id") Integer  id, Model model){
         model.addAttribute("a",id);
         return "infor";
+    }
+    @RequestMapping("tologin")
+    public String tologin(){
+
+        return "login";
     }
 
 
