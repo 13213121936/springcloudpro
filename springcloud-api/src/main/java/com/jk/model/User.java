@@ -12,7 +12,7 @@ package com.jk.model;
 import java.io.Serializable;
 
 /**
- * 〈一句话功能简述〉<br> 
+ * 〈一句话功能简述〉<br>
  * 〈a〉
  *
  * @author zyl
@@ -23,31 +23,77 @@ public class User implements Serializable{
 
     private static final long serialVersionUID = -6670640310551713010L;
 
-    private String userName;
+    private Integer id;
+    private String  userphone;//手机号
+    private String  password;//密码
+    private Integer  role;//角色
+    private Double  balance;//余额
+    private String  username;//姓名
+    private String  mailbox;//邮箱
+    private String  sex;//性别
 
-    private Integer userAge;
 
-    public String getUserName() {
-        return userName;
+    public Integer getId() {
+        return id;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public Integer getUserAge() {
-        return userAge;
+    public String getUserphone() {
+        return userphone;
     }
 
-    public void setUserAge(Integer userAge) {
-        this.userAge = userAge;
+    public void setUserphone(String userphone) {
+        this.userphone = userphone;
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "userName='" + userName + '\'' +
-                ", userAge=" + userAge +
-                '}';
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public Integer getRole() {
+        return role;
+    }
+
+    public void setRole(Integer role) {
+        this.role = role;
+    }
+
+    public Double getBalance() {
+        return balance;
+    }
+
+    public void setBalance(Double balance) {
+        this.balance = balance;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getMailbox() {
+        return mailbox;
+    }
+
+    public void setMailbox(String mailbox) {
+        this.mailbox = mailbox;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
     }
 }

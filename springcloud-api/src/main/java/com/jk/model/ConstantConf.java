@@ -18,7 +18,7 @@ package com.jk.model;
 public class ConstantConf {
     public static final String  STRINGDXYZ = "dxyz";//短信验证
 
-    public static final Integer  INTEGERDXYZTIME = 60;
+    public static final Integer  INTEGERDXYZTIME = 180;
 
     public static final String  STRINGW= "0374867b2c1844dbbe0bf019bf0def28";
 

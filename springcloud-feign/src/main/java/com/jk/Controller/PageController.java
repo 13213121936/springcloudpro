@@ -12,6 +12,8 @@ package com.jk.Controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.thymeleaf.model.IModel;
 
 /**
  * 〈一句话功能简述〉<br> 
@@ -27,19 +29,55 @@ public class PageController {
         return "addCar";
     }
 
-    @RequestMapping("toMain")
-    public String toMain(){
+    @RequestMapping("list")
+    public String list(){
+        return "list";
+    }
+    @RequestMapping("index")
+    public String index(){
         return "index";
     }
     @RequestMapping("tomaiche")
     public String tomaiche(){
         return "wymc";
     }
+    @RequestMapping("towdxq")
+    public String towdxq(){
+        return "wdxq";
+    }
+    @RequestMapping("tohyzx")
+    public String tohyzx(){
+        return "hyzx";
+    }
+    @RequestMapping("to404")
+    public String to404(){
+        return "404";
+    }
+    @RequestMapping("tomeiti")
+    public String tomeiti(){
+        return "medialist";
+    }
 
+    @RequestMapping("towzgg")
+    public String towzgg(){
+        return "newlist";
+    }
+
+    @RequestMapping("togywm")
+    public String togywm(){
+        return "about";
+    }
     @RequestMapping("toinfor")
-    public String toinfor(Model model){
-        int id=333333;
+    public String toinfor(@RequestParam("id") Integer  id, Model model){
         model.addAttribute("a",id);
+        System.out.println(id+"aaaaaaaaaaaaaaaaaaaaaaa");
         return "infor";
     }
+    @RequestMapping("tologin")
+    public String tologin(){
+
+        return "login";
+    }
+
+
 }

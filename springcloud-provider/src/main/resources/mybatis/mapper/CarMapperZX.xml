@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jk.mapper.CarMapperZX" >
+
+
+  <!--  <select id="queryUserList" resultType="com.jk.model.Carsc">
+        select * from t_car
+    </select>-->
+
+ <!-- <select id="conutPhone" parameterType="String" resultType="com.jk.model.User">
+       select * from t_user where userphone =#{value}
+    </select>-->
+
+</mapper>
