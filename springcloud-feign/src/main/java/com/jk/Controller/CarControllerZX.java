@@ -171,18 +171,13 @@ public class CarControllerZX {
 
     @GetMapping("/carzx/deleteColl")
     @ResponseBody
-    public Boolean deleteColl(@RequestParam(value = "ids") String[] ids){
+    public Boolean deleteColl(@RequestParam(value = "ids") String[] ids) {
         System.out.println(ids);
 
         carServiceZX.deleteColl(ids);
         return true;
 
     }
-
-
-
-
-
 
 
 
