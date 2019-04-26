@@ -390,7 +390,13 @@
                 yanzhengma:yanzhengma
             },
             success:function(data){
-
+            },error(data){
+                if(data=="验证码不正确"){
+                    alert("验证码不正确");
+                    return;
+                }
+                alert("预约成功!稍后请注意来电");
+                location=location
             }
         })
         $("#popBoxprice").fadeOut();

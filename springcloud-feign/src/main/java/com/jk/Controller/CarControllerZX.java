@@ -114,11 +114,18 @@ public class CarControllerZX {
 
 
     //卖车的预约
-    @RequestMapping("/carzx/addSeller")
+    @PostMapping("/carzx/addSeller")
     @ResponseBody
     public String addSeller(@RequestParam("userphone")String userphone,@RequestParam("yanzhengma")String yanzhengma) {
-        System.out.println(userphone);
-       String attribute = redisTemplate.opsForValue().get(ConstantConf.STRINGDXYZ+"Verification").toString();
+      // String attribute = redisTemplate.opsForValue().get(ConstantConf.STRINGDXYZ+"Verification").toString();
+        String attribute="11";
+    if(userphone.length()!=11){
+        return  "请输入正确手机号";
+    }
+
+     if(attribute==null){
+         return  "请获取验证码";
+     }
         System.out.println(attribute);
         if (!attribute.equals(yanzhengma)) {
             return "验证码不正确";//验证码不正确
