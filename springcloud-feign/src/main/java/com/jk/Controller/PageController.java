@@ -51,7 +51,7 @@ public class PageController {
     }
     @RequestMapping("to404")
     public String to404(){
-        return "404";
+        return "about";
     }
     @RequestMapping("tomeiti")
     public String tomeiti(){

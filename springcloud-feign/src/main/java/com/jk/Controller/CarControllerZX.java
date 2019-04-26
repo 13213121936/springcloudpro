@@ -147,10 +147,10 @@ public class CarControllerZX {
         User user1= (User) session.getAttribute("user");
         Integer userid=  user1.getId();
         User user=carServiceZX.queryUserBean(userid);
-        String str=user.getUsername();
+/*        String str=user.getUsername();
         user.setUsername(str.substring(0,1));
         System.out.println(str.substring(0,1));
-        System.out.println(user);
+        System.out.println(user);*/
         return user;
     }
     //收藏页面查询汽车
@@ -224,8 +224,9 @@ public class CarControllerZX {
     @GetMapping("phoneVerification")
     @ResponseBody
     public   String   phoneVerification(String userphone,String yanzhengma,HttpServletRequest request) {
-      String attribute = redisTemplate.opsForValue().get(ConstantConf.STRINGDXYZ + "Verification").toString();
+    //  String attribute = redisTemplate.opsForValue().get(ConstantConf.STRINGDXYZ + "Verification").toString();
         String aa = "";
+        String attribute="11";
         if(attribute==null){
             aa="验证码失效,请重新获取";
         }

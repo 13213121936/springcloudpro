@@ -141,7 +141,7 @@ $(function () {
 <body>
 <div class="egc-top">
   <div class="nav-cent">
-    <div class="top-r"> <a href="#" id="b-regist">朱先生</a>|<a href="#" id="b-login" class="b-login">退出</a> </div>
+    <div class="top-r"><a href="tohyzx" id="b-regist"  th:text="'尊贵的会员:'+${session.user.username}"></a> </div>
     <div class="top-l">全国统一客服热线：400-877-9288</div>
     <div class="clear_fix"></div>
   </div>
@@ -224,7 +224,7 @@ $(function () {
             <img src="images/photo.png">
         </span>
          <div class="mr-infor fl dInline">
-        <h2>您好，尊敬的会员 <b><span id="username"></span>先生</b></h2>
+        <h2>您好，尊敬的会员 <b><span id="username"></span></b></h2>
         <p>
           手机：<span id="userphone"></span> | [ <a href="#">管理账户信息</a> ]
         </p>
