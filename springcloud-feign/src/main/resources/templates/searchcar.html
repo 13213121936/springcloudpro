@@ -1,105 +1,123 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <!-- 引入jequery -->
-    <script type="text/javascript" src="./js/jquery.min.js"></script>
-    <link rel="stylesheet" href="./bootstrap/bootstrap3/css/bootstrap.css">
-    <script type="text/javascript" src="./bootstrap/bootstrap3/js/bootstrap.js"></script>
-    <link rel="stylesheet" href="./bootstrap/bootstrap-table/bootstrap-table.css">
-    <script type="text/javascript" src="./bootstrap/bootstrap-table/bootstrap-table.js"></script>
-    <script type="text/javascript" src="./bootstrap/bootstrap-table/locale/bootstrap-table-zh-CN.js"></script>
-    <script src="./bootstrap/bootstrap-bootbox/bootbox.js"></script>
-    <link rel="stylesheet" href="./bootstrap/bootstrap-datetimepicker/css/bootstrap-datetimepicker.css">
-    <script type="text/javascript" src="./bootstrap/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
-    <script type="text/javascript" src="./bootstrap/bootstrap-datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>
-    <link rel="stylesheet" href="./bootstrap/bootstrap-fileinput/css/fileinput.css">
-    <script type="text/javascript" src="./bootstrap/bootstrap-fileinput/js/fileinput.js"></script>
-    <script type="text/javascript" src="./bootstrap/bootstrap-fileinput/js/locales/zh.js"></script>
-    <style>
-        .table th, .table td {
-            text-align: center;
-            height:38px;
-        }
-    </style>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>阳光好车</title>
+    <link rel="stylesheet" type="text/css" href="css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="css/home.css"/>
+    <link rel="stylesheet" type="text/css" href="city/city.css">
+    <script type="text/javascript" src="script/jquery-1.8.0.min.js"></script>
+    <script type="text/javascript" src="script/home_ban.js"></script>
+    <script type="text/javascript" src="script/eg_top_search.js"></script>
+    <script type="text/javascript" src="script/city.js"></script>
+    <script type="text/javascript" src="script/snncar.js"></script>
+    <script type="text/javascript" src="script/jquery.SuperSlide.2.1.1.js"></script>
 </head>
 <body>
-<div class="nav-cent">
-    <nav class="navbar navbar-default">
-        <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="index">首页</a>
+<div class="navigation">
+    <div class="nav-cent">
+        <div class="logo"><a href="index"><img src="images/logo.png" width="240" /></a></div>
+        <div class="city">
+            <div id="JS_hide_city_menu_11" class="city-select cut_handdler Left">
+                <div id="JS_header_city_bar_box" class="hide_city_group">
+                    <div class="hideMap">
+                        <div class="scrollBody">
+                        </div>
+                    </div>
+                </div>
             </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#">Link</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Action</a></li>
-                            <li><a href="#">Another action</a></li>
-                            <li><a href="#">Something else here</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="#">Separated link</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div><!-- /.navbar-collapse -->
-        </div><!-- /.container-fluid -->
-    </nav>
-</div>
-
-<center>
-    <form class="form-inline">
-        <div class="form-group">
-            <label for="cartype"><img src="images/logo.png" width="240" /></label>
-            <input type="text" class="form-control" size="50" id="cartype" placeholder="请输入汽车名称">
         </div>
-        <button type="button" class="btn btn-primary glyphicon glyphicon-search" onclick="search()">搜索</button>
-    </form>
-</center>
-<br><br>
-<div class="row service-v1 margin-bottom-40" id="yemain"></div>
-<center>
-    <nav aria-label="Page navigation">
-        <ul class="pagination pagination-lg">
-            <li>
-                <a href="#" aria-label="Previous">
-                    <span aria-hidden="true">&laquo;</span>
-                </a>
-            </li>
-            <li><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">4</a></li>
-            <li><a href="#">5</a></li>
-            <li>
-                <a href="#" aria-label="Next">
-                    <span aria-hidden="true">&raquo;</span>
-                </a>
-            </li>
+        <div class="sea">
+            <div class="egc-sea-box">
+                <input type="text" class="sea-ipt-txt" id="cartype" placeholder="搜索您想要的车">
+                <a href="javascript:search()"  class="search-btn">搜索</a> </div>
+        </div>
+        <div class="hot-phone"> <i></i> <span class="js-change-phone">400-877-9288</span> </div>
+    </div>
+</div>
+<ul class="navmenu">
+    <li class="active"><a href="index">首页</a><span></span></li>
+    <li><a href="list">我要买车</a><span></span></li>
+    <li><a href="tomaiche">我要卖车</a><span></span></li>
+    <li><a href="to404">阳光联盟</a><span></span></li>
+    <li><a href="to404">我要加盟</a><span></span></li>
+</ul>
+<div class="clear_fix"></div>
+<div class="stress-search-box row">
+    <div class="stress-close"><a href="javascript:;"></a></div>
+    <div class="nav-cents">
+        <ul>
+            <li class="logo"><a href="index"><img src="images/logo.png"  width="180"/></a></li>
+            <li><a href="index">首页</a></li>
+            <li><a href="list">我要买车</a></li>
+            <li><a href="tomaiche">我要卖车</a></li>
+            <li><a href="to404">阳光联盟</a></li>
+            <li><a href="to404">我要加盟</a></li>
         </ul>
-    </nav>
-</center>
-</body>
+        <div class="seas">
+            <div class="egc-sea-box">
+                <input type="text" class="sea-ipt-txt" id="cartype" placeholder="搜索您想要的车">
+                <a href="javascript:search()"  class="search-btn">搜索</a> </div>
+        </div>
+    </div>
+</div>
+</div>
+<!--车类列表-->
+<div class="row service-v1 margin-bottom-40" id="yemain"></div>
+<!--新闻资讯-->
+<div class="newscon">
+    <div class="block-description"> <span class="title">阳光新闻</span> </div>
+</div>
+<!--底部-->
+<div class="ftWrap">
+    <div class="foot">
+        <div class="cent">
+            <div class="relate">
+                <div class="items">
+                    <div class="tit"><i class="icon-angle-right"></i>交易帮助</div>
+                    <div class="con"> <a href="#">买车帮助</a> <a href="#">卖车帮助</a> <a href="#">过户帮助</a> </div>
+                </div>
+                <div class="items">
+                    <div class="tit"><i class="icon-angle-right"></i>客服中心</div>
+                    <div class="con"> <a href="abut.html">网站合作</a> <a href="about.html">关于我们</a> <a href="contact.html">联系我们</a> </div>
+                </div>
+                <div class="items">
+                    <div class="tit"><i class="icon-angle-right"></i>购车指南</div>
+                    <div class="con"> <a href="#">购车帮助</a></div>
+                </div>
+                <div class="app-section"> <img class="js-delayed-img"  src="images/f_wx.jpg">
+                    <div class="title">扫码关注微信</div>
+                    <p> 随时随地，秒杀好车<br />
+                        优质个人二手车 </p>
+                </div>
+                <div class="items last">
+                    <div class="tel">
+                        <h1>400-877-9288</h1>
+                        <p>周一至周日 8:00-18:00</p>
+                        <p>免费咨询(咨询、建议、投诉)</p>
+                        <a href="#" class="kf"><i class="kf-icon"></i>在线客服</a> </div>
+                    <div class="tel-mb">
+                        <p><span>400-710-8886</span>周一至周日 8:00-18:00(仅收市话费)</p>
+                        <a href="#" class="kf"><i class="kf-icon"></i>在线客服</a> </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="copyright">
+        <div class="cent"> Copyright © 2016-2017, snncar.com,All Rights Reserved 皖ICP备16022456号-1</div>
+    </div>
+</div>
+<!--leftsead end-->
 <style>
     .list-infoBox {
         float: left;
         width: 25%;
     }
 </style>
-<script>
+</body>
+<script type="text/javascript">
     $(function(){
         queryList();
     })

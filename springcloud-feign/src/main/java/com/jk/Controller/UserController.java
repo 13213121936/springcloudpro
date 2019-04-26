@@ -10,6 +10,7 @@
 package com.jk.Controller;
 
 import com.jk.model.Car;
+import com.jk.model.CarIndexImg;
 import com.jk.model.Carsc;
 import com.jk.service.UserService;
 import org.apache.solr.client.solrj.SolrClient;
@@ -20,6 +21,7 @@ import org.apache.solr.common.SolrDocument;
 import org.apache.solr.common.SolrDocumentList;
 import org.apache.solr.common.SolrInputDocument;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -27,6 +29,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.io.IOException;
 import java.util.*;
+import java.util.concurrent.TimeUnit;
 
 /**
  * 〈一句话功能简述〉<br>
@@ -44,20 +47,29 @@ public class UserController {
 
     @Autowired
     private SolrClient client;
+
+    @Autowired
+    private RedisTemplate redisTemplate;
+
     //查询
     @GetMapping("/queryCarList")
     public List<Carsc> queryUserList(){
-        System.out.println(1111);
-      List<Carsc> car =  userService.queryUserList();
-      System.out.println(car);
-        return  car;
+        String key="index";
+        List<Carsc> list=new ArrayList<>();
+        if(!redisTemplate.hasKey(key)){
+            list=userService.queryUserList();
+            redisTemplate.opsForValue().set(key,list);
+            redisTemplate.expire(key, 1, TimeUnit.MINUTES);
+        }else{
+            list= (List<Carsc>) redisTemplate.opsForValue().get(key);
+        }
+        return  list;
     }
 
 
     @GetMapping("/search")
-    public Map<String,Object> userlist(Car car, Integer page, Integer rows) throws IOException, SolrServerException {
+    public List<Car> userlist(Car car) throws IOException, SolrServerException {
         //因为使用easyui返回数据
-        Map<String,Object> mSolr=new HashMap<String,Object>();
         //把所有查询的高亮显示内容发到list中
         List<Car> carList=new ArrayList<>();
         //查询条件的对象
@@ -75,16 +87,12 @@ public class UserController {
         // 设置高亮字段
         params.addHighlightField("carname"); // 高亮字段
         //分页
-        if(page==null){
+
             params.setStart(0);
-        }else {
-            params.setStart((page-1)*rows);
-        }
-        if(rows==null){
-            params.setRows(5);
-        }else {
-            params.setRows(rows);
-        }
+
+
+            params.setRows(20);
+
         //高亮
         //打开开关
         params.setHighlight(true);
@@ -125,9 +133,12 @@ public class UserController {
             car1.setImg((String) result.get("img"));
             carList.add(car1);
         }
-        mSolr.put("total",numFound);
-        mSolr.put("rows",carList);
-        return mSolr;
+        return carList;
     }
 
+
+    @GetMapping("queryindeximg")
+    public List<CarIndexImg> queryindeximg(){
+        return userService.queryindeximg();
+    }
 }

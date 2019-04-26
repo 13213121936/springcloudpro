@@ -72,4 +72,6 @@ public interface UserService {
     @PostMapping("adduserzhu")
     void adduserzhu(@RequestParam("userphone") String userphone);
 
+    @GetMapping("queryindeximg")
+    List<CarIndexImg> queryindeximg();
 }

@@ -70,7 +70,6 @@ public class PageController {
     @RequestMapping("toinfor")
     public String toinfor(@RequestParam("id") Integer  id, Model model){
         model.addAttribute("a",id);
-        System.out.println(id+"aaaaaaaaaaaaaaaaaaaaaaa");
         return "infor";
     }
     @RequestMapping("tologin")
@@ -78,6 +77,14 @@ public class PageController {
 
         return "login";
     }
+    @RequestMapping("searchcar")
+    public String searchcar(@RequestParam("cartype")String cartype,Model model){
+        model.addAttribute("a",cartype);
+        return "searchcar";
+    }
 
-
+    @RequestMapping("login")
+    public String login(){
+        return "login";
+    }
 }
