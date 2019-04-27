@@ -76,4 +76,7 @@ public interface CarMapperZX {
 
     @Insert(" INSERT into t_user(userphone) VALUES(#{userphone}) ")
     void adduserzhu(@RequestParam("userphone") String userphone);
+
+    @Select(" select * from t_indeximg   ")
+    List<CarIndexImg> queryindeximg();
 }

@@ -127,6 +127,10 @@ public class CarServiceImpl {
         carMapperZX.adduserzhu(userphone);
     }
 
-
+    @GetMapping("queryindeximg")
+    @ResponseBody
+    public List<CarIndexImg> queryindeximg(){
+        return carMapperZX.queryindeximg();
+    }
 
 }
