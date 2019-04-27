@@ -322,24 +322,27 @@
             success: function (data) {
                 var tt="<ul></ul>";
                 for (i=0;i<data.length;i++){
-                    tt+="<li class='clearfix' style='position: relative;'><span class='carImg fl dInline'><div class='car_bg'> </div> <img src='"+data[i].img+"' onerror='this.src='images/carinfor1.jpg' width='300'></span>  <div class='carTxt fr dInline'><h2>"+data[i].carname+"</h2>  <p><span>上牌时间："+data[i].regTime+"</span> <span>行驶里程："+data[i].travel+"</span> <span>排量："+data[i].displacement+"T</span>  </p>  <div class='price clearfix' style='margin:5px 0;'>  <div class='fl dInline pNum'><font>一口价</font><br> <span class='num nBlue'>"+data[i].price+"</span><font> 元</font></div>  </div>  <div class='cs_bt clearfix'><a href='#' class='cs-q'>立即抢订</a><a onclick='deleteColl("+data[i].id+")'>取消收藏</a></div>  </div>  </li>"
+                    tt+="<li class='clearfix' style='position: relative;'><span class='carImg fl dInline'><div class='car_bg'> </div> <img src='"+data[i].img+"' onerror='this.src='images/carinfor1.jpg' width='300'></span>  <div class='carTxt fr dInline'><h2>"+data[i].carname+"</h2>  <p><span>上牌时间："+data[i].regTime+"</span> <span>行驶里程："+data[i].travel+"</span> <span>排量："+data[i].displacement+"T</span>  </p>  <div class='price clearfix' style='margin:5px 0;'>  <div class='fl dInline pNum'><font>一口价</font><br> <span class='num nBlue'>"+data[i].price+"</span><font> 元</font></div>  </div>  <div class='cs_bt clearfix'><a href='#' class='cs-q'>立即抢订</a><a onclick='deleteColl(\""+data[i].id+"\")'>取消收藏</a></div>  </div>  </li>"
                    }
                 var hh="<ul>"+tt+"</ul>";
-                $("#ulul").html(hh)
+                $("#ulul").html(hh);
+
                 }
         })
     }
     function deleteColl(id) {
         $.ajax({
-            url:"carzx/deleteColl",
-            type:"get",
-            data:{id:id},
-            success:function(data){
+            url: "carzx/deleteColl",
+            type: "get",
+            data:{ids:id},
+            success: function (data) {
 
-            },error(){
+            },
+            error(){
                 location=location
             }
         })
+
     }
 </script>
 </body>

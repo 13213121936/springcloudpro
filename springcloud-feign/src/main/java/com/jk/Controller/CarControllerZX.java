@@ -114,7 +114,7 @@ public class CarControllerZX {
 
 
     //卖车的预约
-    @PostMapping("/carzx/addSeller")
+    @RequestMapping("/carzx/addSeller")
     @ResponseBody
     public String addSeller(@RequestParam("userphone")String userphone,@RequestParam("yanzhengma")String yanzhengma) {
       // String attribute = redisTemplate.opsForValue().get(ConstantConf.STRINGDXYZ+"Verification").toString();
@@ -134,17 +134,23 @@ public class CarControllerZX {
         return "提交成功";
     }
     //收藏
-    @RequestMapping("/carzx/addShouCang")
-    @ResponseBody
-    public String addShouCang(@RequestParam("carid") Integer carid,HttpSession session){
 
-       User user= (User) session.getAttribute("user");
-        Integer userid=  user.getId();
-        int count=carServiceZX.qeuryShouCang(carid,userid);
+    @PostMapping("/carzx/addShouCang")
+    @ResponseBody
+    public String addShouCang(Collect collect,HttpSession session){
+        System.out.println(collect);
+        User user= (User) session.getAttribute("user");
+        String userid= String.valueOf(user.getId());
+        collect.setUserid(userid);
+        System.out.println(userid);
+        String carid=collect.getCarid();
+        System.out.println(carid);
+        long count=carServiceZX.qeuryShouCang(carid,userid);
+        System.out.println(count);
         if (count>0){
             return "这款车已经在收藏页面！";
         }
-        carServiceZX.addShouCang(carid,userid);
+        carServiceZX.addShouCang(collect);
         return "收藏成功";
     }
     //收藏页面查询用户
@@ -164,17 +170,19 @@ public class CarControllerZX {
     @GetMapping("/carzx/queryCarBean")
     @ResponseBody
     public  List<Collect> queryCarBean(HttpSession session){
-        User user1= (User) session.getAttribute("user");
-        Integer userid=  user1.getId();
+
+        User user= (User) session.getAttribute("user");
+        String userid= String.valueOf(user.getId());
         List<Collect> list=carServiceZX.queryCarBean(userid);
         return list;
     }
+
     @GetMapping("/carzx/deleteColl")
     @ResponseBody
-    public Boolean deleteColl(@RequestParam(value = "id") Integer id){
-        System.out.println(id);
+    public Boolean deleteColl(@RequestParam(value = "ids") String[] ids) {
+        System.out.println(ids);
 
-        carServiceZX.deleteColl(id);
+        carServiceZX.deleteColl(ids);
         return true;
 
     }

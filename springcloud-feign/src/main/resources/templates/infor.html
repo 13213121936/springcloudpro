@@ -1081,6 +1081,7 @@ $("#sendprice").live("click",function(){
         var yanzhengma=$("#yanzhengma").val();
         var qiwangjia=$("#qiwangjia").val();
         var yuanprice=$("#yuanprice").html();
+
         if(yanzhengma==null){
             alert("请输入验证码")
         }
@@ -1095,18 +1096,30 @@ $("#sendprice").live("click",function(){
                 yanzhengma:yanzhengma
             },
             success:function(data){
-               alert(data)
+                alert(data)
             }
         })
         $("#popBoxprice").fadeOut();
     }
     function shoucang() {
         var carid='[[${a}]]';
+        var carname=$("#spancarname").html();
+        var price=$("#yuanprice").html();
+        var img=$("#carimg").attr("src");
+        var regTime=$("#spancar8").html();
+        var travel=$("#xiang3").html();
+        var displacement=$("#xiang4").html();
         $.ajax({
             url:"carzx/addShouCang",
             type:"post",
             data:{
-                carid:carid
+                carid:carid,
+                carname:carname,
+                price:price,
+                regTime:regTime,
+                travel:travel,
+                displacement:displacement,
+                img:img
             },
             success:function(data){
                 alert(data)

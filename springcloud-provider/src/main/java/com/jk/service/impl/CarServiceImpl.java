@@ -12,9 +12,14 @@ package com.jk.service.impl;
 import com.jk.mapper.CarMapperZX;
 import com.jk.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -28,7 +33,8 @@ public class CarServiceImpl {
     @Autowired
     private CarMapperZX carMapperZX;
 
-
+    @Autowired
+    private MongoTemplate mongoTemplate;
 
     //查询
     @GetMapping("/queryCarList")
@@ -45,6 +51,7 @@ public class CarServiceImpl {
         information infor= carMapperZX.queryInformation(id);
         System.out.println(infor);
         return infor;
+
     }
     //查询汽车详细信息
     @GetMapping("/carzx/queryCarList")
@@ -81,42 +88,51 @@ public class CarServiceImpl {
     public void addSeller(@RequestParam("userphone") String userphone){
         carMapperZX.addSeller(userphone);
     }
+
     @PostMapping("/carzx/addShouCang")
-    public void addShouCang(@RequestParam("carid") Integer carid,@RequestParam("userid") Integer userid){
-        System.out.println(carid);
-        carMapperZX.addShouCang(carid,userid);
+    public void addShouCang(@RequestBody Collect collect){
+        System.out.println(collect);
+        mongoTemplate.save(collect);
     }
     //收藏
     @GetMapping("/qeuryShouCang")
     @ResponseBody
-    public int qeuryShouCang(@RequestParam("carid") Integer carid,@RequestParam("userid") Integer userid){
-        System.out.println(carid);
-        int count=carMapperZX.qeuryShouCang(carid,userid);
+    public long qeuryShouCang(@RequestParam("carid") String carid,@RequestParam("userid") String userid){
+        System.out.println(userid);
+        List<Collect> list=mongoTemplate.find (new Query(Criteria.where("userid").is(userid).and("carid").is(carid)),Collect.class);
+        long count=list.size();
         System.out.println(count);
         return count;
     }
     @GetMapping("/carzx/queryUserBean")
     @ResponseBody
     public User queryUserBean(@RequestParam("userid")Integer userid){
-       User user= carMapperZX.queryUserBean(userid);
+        User user= carMapperZX.queryUserBean(userid);
         return user;
     }
     @GetMapping("/carzx/queryCarBean")
     @ResponseBody
-    public List<Collect> queryCarBean(@RequestParam("userid")Integer userid){
-        List<Collect> list=carMapperZX.queryCarBean(userid);
+    public List<Collect> queryCarBean(@RequestParam("userid")String userid){
+        Query query=new Query();
+        if(StringUtils.isEmpty(userid)){
+            query.addCriteria(Criteria.where("userid").is(userid));
+        }
+        List<Collect> list =mongoTemplate.find(query,Collect.class);
         System.out.println(list);
         return list;
     }
+
     @GetMapping("/carzx/deleteColl")
-    public void deleteColl(@RequestParam(value = "id") Integer id){
-        carMapperZX.deleteColl(id);
+    public void deleteColl(@RequestParam(value = "ids") String[] ids){
+        Query query = new Query();
+        query.addCriteria(Criteria.where("id").in(ids));
+        mongoTemplate.remove(query, Collect.class);
     }
 
 
     @RequestMapping("phoneVerification")
     @ResponseBody
-     public   User userquery(@RequestParam("userphone") String userphone){
+    public   User userquery(@RequestParam("userphone") String userphone){
         User user =carMapperZX.userquery(userphone);
         return user;
     }

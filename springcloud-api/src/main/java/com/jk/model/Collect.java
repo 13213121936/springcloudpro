@@ -9,26 +9,32 @@
  */
 package com.jk.model;
 
+import java.lang.annotation.Documented;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 /**
  * 〈一句话功能简述〉<br> 
  * @author 17120
  * @create 2019/4/23
  * @since 1.0.0
  */
+@Document(collection = "t_collect")
 public class Collect {
-    private Integer id;
+    private String id;
     private String carname;
     private Integer price;
     private String regTime;
     private Double travel;
     private Double displacement;
     private String img;
+    private String userid;
+    private String carid;
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -80,16 +86,34 @@ public class Collect {
         this.img = img;
     }
 
+    public String getUserid() {
+        return userid;
+    }
+
+    public void setUserid(String userid) {
+        this.userid = userid;
+    }
+
+    public String getCarid() {
+        return carid;
+    }
+
+    public void setCarid(String carid) {
+        this.carid = carid;
+    }
+
     @Override
     public String toString() {
         return "Collect{" +
-                "id=" + id +
+                "id='" + id + '\'' +
                 ", carname='" + carname + '\'' +
                 ", price=" + price +
                 ", regTime='" + regTime + '\'' +
                 ", travel=" + travel +
                 ", displacement=" + displacement +
                 ", img='" + img + '\'' +
+                ", userid='" + userid + '\'' +
+                ", carid='" + carid + '\'' +
                 '}';
     }
 }

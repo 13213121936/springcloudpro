@@ -53,18 +53,19 @@ public interface UserService {
     void addSeller(@RequestParam("userphone")String userphone);
 
     @PostMapping("/carzx/addShouCang")
-    void addShouCang(@RequestParam("carid")Integer carid, @RequestParam("userid")Integer userid);
+    void addShouCang(@RequestBody Collect collect);
 
     @GetMapping("/qeuryShouCang")
-    int qeuryShouCang(@RequestParam("carid")Integer carid, @RequestParam("userid")Integer userid);
+    long qeuryShouCang(@RequestParam("carid") String carid,@RequestParam("userid")String userid);
 
     @GetMapping("/carzx/queryUserBean")
     User queryUserBean(@RequestParam("userid")Integer userid);
 
     @GetMapping("/carzx/queryCarBean")
-    List<Collect> queryCarBean(@RequestParam("userid")Integer userid);
+    List<Collect> queryCarBean(@RequestParam("userid")String userid);
+
     @GetMapping("/carzx/deleteColl")
-    void deleteColl(@RequestParam(value = "id") Integer id);
+    void deleteColl(@RequestParam(value = "ids") String[] ids);
 
     @GetMapping("phoneVerification")
     User userquery(@RequestParam("userphone") String userphone);

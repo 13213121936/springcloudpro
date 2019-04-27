@@ -78,6 +78,10 @@ public class PageController {
 
         return "login";
     }
+    @RequestMapping("tokuaijie")
+    public String tokuaijie(){
 
+        return "kuaijie";
+    }
 
 }
